@@ -1,0 +1,58 @@
+<div class="select">
+  <div class="select__content">
+    <div class="select__text">
+      <p>Seleccione el tipo de proyecto:</p>
+    </div>
+
+    <div class="select__links">
+      <button href="" class="select__link select__link--actived" (click)="getProjects()">Todos</button>
+      <button href="" class="select__link" (click)="filterProjects('Puentes de aluminio')">Puentes de aluminio</button>
+      <button href="" class="select__link" (click)="filterProjects('Parapetos')">Parapetos</button>
+    </div>
+  </div>
+</div>
+
+<div class="projects">
+  <div class="projects__empty" *ngIf="!projects; else projectsExists">
+    <p>No hay proyectos existentes</p>
+  </div>
+
+  <div class="cards">
+    <div class="cards__content" #projectsExists *ngFor="let project of projects">
+      <div class="cards__image">
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide" *ngFor="let image of project.pictures">
+                <div *ngIf="image.picture">
+                  <img src="{{image.url}}" alt="">
+                </div>
+                <div *ngIf="!image.picture">
+                  <video src="{{image.url}}" controls muted controlsList="nofullscreen nodownload"></video>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span
+                class="row-icon mdi mdi-chevron-left"></span></button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span
+                class="row-icon mdi mdi-chevron-right"></span></button>
+          </div>
+        </div>
+        <div class="cards__overlay">
+          <textarea readonly>{{project.description}}</textarea>
+        </div>
+      </div>
+      <div class="cards__info">
+        <div class="cards__text">
+          <p>{{project.name}}</p>
+        </div>
+        <div class="icon cards__more" (click)="cardActived($event)">
+          <span class="mdi mdi-plus"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

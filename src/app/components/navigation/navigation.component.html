@@ -1,0 +1,46 @@
+<div class="navbar">
+  <div class="navbar__bar">
+    <div class="navbar__logo">
+      <a href="index.html">
+        <img class="logo" src="../assets/img/logo-white.svg" alt="Logo Grupo ERMOFE">
+      </a>
+    </div>
+    <div class="navbar__content">
+      <div class="search" #search (click)="searchActived()">
+        <div class="search__icon">
+          <img class="icon" src="../assets/icons/search.svg" alt="Search">
+        </div>
+        <div class="search__form form">
+          <form #searchForm="ngForm" autocomplete="off" (submit)="searchForm.reset()">
+            <input type="text" name="search" placeholder="Buscar" [(ngModel)]="wordSearch" required>
+            <button [routerLink]="['/search/', wordSearch]" (click)="currentPage('search')">
+              <img class="icon" src="../assets/icons/search.svg" alt="Search">
+            </button>
+          </form>
+        </div>
+      </div>
+      <nav class="navbar__desktop links" #links>
+        <a class="links__item" (click)="currentPage('home')" [routerLink]="['/home']"
+          routerLinkActive="links__item--actived">Inicio</a>
+        <a class="links__item" (click)="currentPage('projects')" [routerLink]="['/projects']"
+          routerLinkActive="links__item--actived">Proyectos</a>
+        <a class="links__item" (click)="currentPage('aluminium')" [routerLink]="['/aluminium']"
+          routerLinkActive="links__item--actived">¿Por qué
+          aluminio?</a>
+        <a class="links__item" (click)="currentPage('products')" [routerLink]="['/products']"
+          routerLinkActive="links__item--actived">Productos</a>
+        <a class="links__item" (click)="currentPage('clients')" [routerLink]="['/clients']"
+          routerLinkActive="links__item--actived">Clientes</a>
+        <a class="links__item" (click)="currentPage('catalog')" [routerLink]="['/catalog']"
+          routerLinkActive="links__item--actived">Catálogo</a>
+        <a class="links__item" (click)="currentPage('contact')" [routerLink]="['/contact']"
+          routerLinkActive="links__item--actived">Contacto</a>
+      </nav>
+      <div class="burger" #burger (click)="burgerActived()">
+        <div class="burger__item line"></div>
+        <div class="burger__item line"></div>
+        <div class="burger__item line"></div>
+      </div>
+    </div>
+  </div>
+</div>

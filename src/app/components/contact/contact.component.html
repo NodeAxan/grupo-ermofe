@@ -1,0 +1,46 @@
+<div class="contact">
+  <div class="contact__content">
+    <div class="contact__text">
+      <p>Dudas, aclaraciones o informes, puede ponerse en contacto con nosotros, por los siguientes medios.
+        Responderemos a la brevedad posible.</p>
+    </div>
+    <div class="form">
+      <form #contactForm="ngForm" autocomplete="off">
+        <legend>Campos obligatorios<span>*</span></legend>
+        <div class="input-group">
+          <input class="input" type="text" name="name" #name="ngModel" [(ngModel)]="client.name" required>
+          <label class="label" for="name">Nombre<span>*</span></label>
+        </div>
+        <div class="input-group">
+          <input class="input" type="text" name="last-name" #lastName="ngModel" [(ngModel)]="client.lastName" required>
+          <label class="label" for="last-name">Apellidos<span>*</span></label>
+        </div>
+        <div class="input-group">
+          <input class="input" type="text" name="email" #email="ngModel" [(ngModel)]="client.email" required>
+          <label class="label" for="email">Email<span>*</span></label>
+        </div>
+        <div class="input-group">
+          <textarea class="input" name="message" #message="ngModel" [(ngModel)]="client.message" required></textarea>
+          <label class="label" for="message">Asunto<span>*</span></label>
+        </div>
+        <button type="submit" [ngClass]="{disabled: !contactForm.form.valid}"
+          [disabled]="!contactForm.form.valid">Enviar
+          <span class="mdi mdi-send"></span></button>
+      </form>
+    </div>
+    <div class="social-media">
+      <div class="social-media__item">
+        <span class="mdi mdi-facebook-box"></span>
+        <a href="">Facebook</a>
+      </div>
+      <div class="social-media__item">
+        <span class="mdi mdi-email"></span>
+        <a href="mailto:emiranda@grupoermofe.com">emiranda@grupoermofe.com</a>
+      </div>
+      <div class="social-media__item">
+        <span class="mdi mdi-phone"></span>
+        <p>01 (993) 316 29 07</p>
+      </div>
+    </div>
+  </div>
+</div>

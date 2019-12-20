@@ -1,0 +1,92 @@
+<div class="found">
+
+  <div class="projects">
+    <h2>Proyectos</h2>
+
+    <div class="projects__empty" *ngIf="!projects; else projectsExists">
+      <p>No hay proyectos existentes</p>
+    </div>
+
+    <ng-template class="cards" #projectsExists>
+      <div class="cards__content" *ngFor="let project of projects">
+        <div class="cards__image">
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide" *ngFor="let image of project.pictures">
+                  <div *ngIf="image.picture">
+                    <img src="{{image.url}}" alt="">
+                  </div>
+                  <div *ngIf="!image.picture">
+                    <video src="{{image.url}}" controls muted controlsList="nofullscreen nodownload"></video>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span
+                  class="row-icon mdi mdi-chevron-left"></span></button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span
+                  class="row-icon mdi mdi-chevron-right"></span></button>
+            </div>
+          </div>
+          <div class="cards__overlay">
+            <textarea readonly>{{project.description}}</textarea>
+          </div>
+        </div>
+        <div class="cards__info">
+          <div class="cards__text">
+            <p>{{project.name}}</p>
+          </div>
+          <div class="icon cards__more" (click)="cardActived($event)">
+            <span class="mdi mdi-plus"></span>
+          </div>
+        </div>
+      </div>
+
+    </ng-template>
+  </div>
+
+  <div class="products">
+    <h2>Productos</h2>
+
+    <div class="products__empty" *ngIf="!products; else productsExists">
+      <p>No hay productos existentes</p>
+    </div>
+
+    <ng-template class="cards" #productsExists>
+      <div class="cards__content" *ngFor="let product of products">
+        <div class="cards__image">
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide" *ngFor="let image of product.pictures">
+                  <img src="{{image}}" alt="">
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span
+                  class="row-icon mdi mdi-chevron-left"></span></button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span
+                  class="row-icon mdi mdi-chevron-right"></span></button>
+            </div>
+          </div>
+          <div class="cards__overlay">
+            <textarea readonly>{{product.description}}</textarea>
+          </div>
+        </div>
+        <div class="cards__info">
+          <div class="cards__text">
+            <p>{{product.name}}</p>
+          </div>
+          <div class="icon cards__more">
+            <span class="mdi mdi-plus" (click)="cardActived($event)"></span>
+          </div>
+        </div>
+      </div>
+
+    </ng-template>
+  </div>
+
+</div>

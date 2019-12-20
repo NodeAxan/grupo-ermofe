@@ -1,0 +1,46 @@
+.projects {
+  width: 100%;
+  margin-top: 4rem;
+  padding: 4rem 2rem 2rem 2rem;
+  background-color: $lightGray;
+  clip-path: polygon(0% 25px, 100% 0%, 100% calc(100% - 25px), 0% 100%);
+
+  @include media-tablet {
+    clip-path: polygon(0% 50px, 100% 0%, 100% calc(100% - 50px), 0% 100%);
+  }
+
+  &__content {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    max-width: 1200px;
+
+    @include media-tablet {
+      margin-top: 3rem;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.cards {
+  max-width: 1000px;
+  margin: 3rem auto;
+
+  @media all and (min-width: 650px) {
+    @include flex(row, wrap);
+    @include f-align(center);
+    @include f-justify(center);
+  }
+
+  &__content {
+    @media all and (min-width: 650px) {
+      flex: 0 1 calc(50% - 4rem);
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+  }
+}

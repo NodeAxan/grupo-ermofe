@@ -1,0 +1,42 @@
+<div class="product">
+  <div class="product__list">
+
+    <div class="product__empty" *ngIf="!products; else productsExists">
+      <p>No hay productos existentes...</p>
+    </div>
+
+    <div #productsExists class="product__card" *ngFor="let product of products">
+      <div class="product__title">
+        <div class="product__number">
+          <p><span *ngIf="numberProducts <= 9">0</span>{{numberProducts + 1}}</p>
+          <div class="line"></div>
+        </div>
+        <div class="product__more" (click)="cardActived($event)">
+          <span class="mdi mdi-plus"></span>
+        </div>
+        <h3>{{product.name}}</h3>
+      </div>
+      <div class="product__image">
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide" *ngFor="let image of product.pictures">
+                <img src="{{image}}" alt="">
+              </li>
+            </ul>
+          </div>
+          <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span
+                class="row-icon mdi mdi-chevron-left"></span></button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span
+                class="row-icon mdi mdi-chevron-right"></span></button>
+          </div>
+        </div>
+        <div class="product__overlay">
+          <textarea readonly>{{product.description}}</textarea>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

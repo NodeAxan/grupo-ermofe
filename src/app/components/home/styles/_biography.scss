@@ -1,0 +1,107 @@
+// BIOGRAPHY SECTION
+.biography {
+  width: 100%;
+  margin-top: 4rem;
+
+  &__content {
+    width: 100%;
+  }
+
+  &__text {
+    margin: 0 auto;
+    max-width: 650px;
+    font-size: 1.2rem;
+    padding: 0 1.6rem;
+    text-align: center;
+    margin-bottom: 4rem;
+
+    p {
+      line-height: 1.6rem;
+    }
+
+    span {
+      color: $blue;
+      font-weight: bold;
+    }
+  }
+}
+
+.gator {
+  width: 100%;
+
+  &__info,
+  &__description {
+    width: 100%;
+  }
+
+  &__info {
+    @include media-tablet {
+      @include grid(50% 50%);
+    }
+  }
+
+  &__title {
+    color: $white;
+    padding: 2rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: $blue;
+
+    @include media-tablet {
+      text-align: right;
+      padding: 3rem;
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 450px;
+      line-height: 2rem;
+
+      @include media-tablet {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__image {
+    margin-top: 3rem;
+    padding: 0 1.9rem 0 1.2rem;
+
+    @include media-tablet {
+      margin: auto;
+      max-width: 480px;
+    }
+  }
+
+  &__description {
+    margin: 0 auto;
+    max-width: 900px;
+    margin-top: 3rem;
+    padding: 0 1.8rem;
+    text-align: center;
+
+    @include media-tablet {
+      margin-top: 4rem;
+      padding: 0 3rem;
+      max-width: (948px);
+    }
+
+    @include media-desktop {
+      max-width: 1000px;
+    }
+
+    @include media-largeDesktop {
+      max-width: 1300px;
+    }
+
+    p {
+      margin-top: 1.6rem;
+
+      &:last-child {
+        color: $blue;
+        font-weight: bold;
+      }
+    }
+  }
+}

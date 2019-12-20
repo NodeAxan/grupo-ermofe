@@ -1,0 +1,52 @@
+<footer class="footer">
+  <div class="footer__content">
+    <div class="menu">
+      <div class="contact__title">
+        <h4>Menú</h4>
+        <div class="line"></div>
+      </div>
+      <div class="menu__links">
+        <a class="menu__links__item" (click)="currentPage('home')" [routerLink]="['/home']"
+          routerLinkActive="links__item--actived">Inicio</a>
+        <a class="menu__links__item" (click)="currentPage('projects')" [routerLink]="['/projects']"
+          routerLinkActive="links__item--actived">Proyectos</a>
+        <a class="menu__links__item" (click)="currentPage('aluminium')" [routerLink]="['/aluminium']"
+          routerLinkActive="links__item--actived">¿Por qué
+          aluminio?</a>
+        <a class="menu__links__item" (click)="currentPage('products')" [routerLink]="['/products']"
+          routerLinkActive="links__item--actived">Productos</a>
+        <a class="menu__links__item" (click)="currentPage('clients')" [routerLink]="['/clients']"
+          routerLinkActive="links__item--actived">Clientes</a>
+        <a class="menu__links__item" (click)="currentPage('catalog')" [routerLink]="['/catalog']"
+          routerLinkActive="links__item--actived">Catálogo</a>
+        <a class="menu__links__item" (click)="currentPage('contact')" [routerLink]="['/contact']"
+          routerLinkActive="links__item--actived">Contacto</a>
+      </div>
+    </div>
+    <div class="products">
+      <div class="contact__title">
+        <h4><a [routerLink]="['/projects']">Productos</a></h4>
+        <div class="line"></div>
+      </div>
+      <div class="products__links">
+        <p class="products__links__item">Puentes Peatonales</p>
+        <p class="products__links__item">Parapentos Vehículares</p>
+        <p class="products__links__item">Rejillas Industriales</p>
+        <p class="products__links__item">Muelles GatorDock</p>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="contact__title">
+        <h4>Contacto</h4>
+        <div class="line"></div>
+      </div>
+      <div class="contact__links">
+        <a href="tel:9933162907" class="contact__links__item">01 (993) 316 29 07</a>
+        <a class="contact__links__item" href="mailto:emiranda@grupoermofe.com">emiranda@grupoermofe.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__copyright">
+    <small>Copyright &copy; 2019 - Desarrollado por <a href="https://nodeaxan.com/" target="_blank">NodeAxan</a></small>
+  </div>
+</footer>

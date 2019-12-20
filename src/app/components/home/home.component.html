@@ -1,0 +1,171 @@
+<div class="biography">
+  <div class="biography__content">
+    <div class="biography__text">
+      <p>Somos una empresa mexicana con <span>más de 30 años de experiencia</span> en la industria de
+        la construcción. Actualmente nos especializamos en desarrollar tecnología en aluminio para la
+        industria carretera y marítima.</p>
+    </div>
+    <div class="gator">
+      <div class="gator__info">
+        <div class="gator__title">
+          <p>Somos distribuidores exclusivos de Gator Bridge en México</p>
+        </div>
+        <div class="gator__image">
+          <img src="./assets/img/gatorbridge-spanish_orig.png" alt="Gator Bridge">
+        </div>
+      </div>
+      <div class="gator__description">
+        <p>Distribuidores Exclusivos de GatorBridge en México, una prestigiosa compañía con sede en
+          los E.U. que ha instalado exitosamente más de 7 mil estructuras de aluminio alrededor
+          del mundo. Fue en el año 2015 en la ciudad de Villahermosa, Tabasco donde que se instaló
+          el primer puente peatonal de aluminio en México, consiguiendo de esta forma implementar
+          estructuras anticorrosivas, de bajo costo de mantenimiento, duraderas, de agradable
+          estética y visibilidad, fáciles de transportar e instalar y al final de su uso 100%
+          reciclables.</p>
+        <p>Lo que convierte a GatorBridge México en una excelente inversión a corto, mediano y largo
+          plazo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="projects">
+  <div class="projects__content">
+    <div class="projects__title">
+      <h2>Proyectos Recientes</h2>
+    </div>
+
+    <div class="cards">
+      <div class="projects__empty" *ngIf="!projects; else projectsExists">
+        <p>No hay proyectos existentes</p>
+      </div>
+
+      <div class="cards__content" #projectsExists *ngFor="let project of projects">
+        <div class="cards__image">
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide" *ngFor="let image of project.pictures">
+                  <div *ngIf="image.picture">
+                    <img src="{{image.url}}" alt="">
+                  </div>
+                  <div *ngIf="!image.picture">
+                    <video src="{{image.url}}" controls muted controlsList="nofullscreen nodownload"></video>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span
+                  class="row-icon mdi mdi-chevron-left"></span></button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span
+                  class="row-icon mdi mdi-chevron-right"></span></button>
+            </div>
+          </div>
+          <div class="cards__overlay">
+            <textarea readonly>{{project.description}}</textarea>
+          </div>
+        </div>
+        <div class="cards__info">
+          <div class="cards__text">
+            <p>{{project.name}}</p>
+          </div>
+          <div class="icon cards__more" (click)="cardActived($event)">
+            <span class="mdi mdi-plus"></span>
+          </div>
+        </div>
+      </div> <!-- .cards__content -->
+    </div> <!-- .cards -->
+  </div>
+</div>
+
+<div class="pros">
+  <div class="pros__content">
+    <div class="aluminium">
+      <h2>¿Por qué aluminio?</h2>
+      <ul class="aluminium__options">
+        <li class="aluminium__option">Anticorrosivo.</li>
+        <li class="aluminium__option">0% Mantenimiento.</li>
+        <li class="aluminium__option">Más de 40 años de vida útil.</li>
+        <li class="aluminium__option">Se instala en minutos (menor interrupción de tráfico y molestia social).</li>
+        <li class="aluminium__option">Menor costo de adquisición.</li>
+        <li class="aluminium__option">Mucho más ligeros (1/3 peso del acero).</li>
+        <li class="aluminium__option">Fabricados con aluminio 6061-T6 grado marino antioxidante de alta resistencia.
+        </li>
+        <li class="aluminium__option">Mayor Resistencia en la relación de fuerza a peso.</li>
+      </ul>
+    </div>
+
+    <div></div>
+
+    <div class="applications">
+      <h2>Aplicaciones</h2>
+      <ul class="applications__options">
+        <li class="applications__option">Puente Peatonal</li>
+        <li class="applications__option">Puentes Industriales</li>
+        <li class="applications__option">Puentes Multi-Uso</li>
+        <li class="applications__option">A la medida</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="contact">
+  <div class="contact__content">
+    <div class="contact__text">
+      <p>Contacte a GatorBridge México para solicitar una cotización inmediata o para conocer más acerca de los puentes
+        de aluminio. Esperamos poder asistirlo y trabajar en su próximo proyecto.</p>
+    </div>
+    <div class="contact__button">
+      <a [routerLink]="['/contact']">Contáctanos</a>
+    </div>
+  </div>
+</div>
+
+<div class="regulators">
+  <div class="regulators__content">
+    <div class="regulators__title">
+      <h2>Organizaciones Reguladoras</h2>
+    </div>
+    <div class="regulators__text">
+      <p>Altos estándares derivados de un trabajo colabortivo con importantes organizaciones regulatorias del mercado
+      </p>
+    </div>
+    <div class="regulators__images">
+      <div class="regulators__small">
+        <div class="regulators__small__img">
+          <img src="../../../assets/img/regulators/american_welding_society.png" alt="American Welding Society">
+        </div>
+        <div class="regulators__small__img">
+          <img src="../../../assets/img/regulators/department_natural_resources.png" alt="Department Natural Resources">
+        </div>
+        <div class="regulators__small__img">
+          <img src="../../../assets/img/regulators/us_corp_engineers.png" alt="Us Army Corps of Engineers">
+        </div>
+        <div class="regulators__small__img">
+          <img src="../../../assets/img/regulators/fish_wildlife_service.png" alt="Fish & Wildlife Service">
+        </div>
+        <div class="regulators__small__img">
+          <img src="../../../assets/img/regulators/astm_international.png" alt="ASTM International">
+        </div>
+        <div class="regulators__small__img">
+          <img src="../../../assets/img/regulators/aluminium.png" alt="Aluminium Design Manual">
+        </div>
+      </div>
+      <div class="regulators__big">
+        <div class="regulators__big__img">
+          <img src="../../../assets/img/regulators/comunicaciones_transporte.png"
+            alt="Secretaria de Comunicaciones y Transporte">
+        </div>
+        <div class="regulators__big__img">
+          <img src="../../../assets/img/regulators/department_transportation.png"
+            alt="Florida of Department Transportation">
+        </div>
+        <div class="regulators__big__img">
+          <img src="../../../assets/img/regulators/instituto_mexicano_transporte.png"
+            alt="Instituto Mexicano del Transporte">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

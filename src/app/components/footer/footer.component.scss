@@ -1,0 +1,93 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.footer {
+  width: 100%;
+  margin-top: 4rem;
+  background-color: $blue;
+
+  a {
+    color: $white;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    width: 100%;
+    color: $white;
+    margin: 0 auto;
+    padding: 2.4rem;
+    max-width: 1000px;
+
+    @include media-tablet {
+      @include grid(repeat(2, calc(50% - 1rem)));
+      @include gi-justify(center);
+      grid-gap: 2rem;
+    }
+
+    @include media-desktop {
+      @include grid-columns(repeat(3, calc(33.33% - 1rem)));
+      grid-gap: 0;
+    }
+  }
+
+  &__copyright {
+    color: $white;
+    padding: 1rem;
+    text-align: center;
+
+    a {
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
+
+.menu,
+.products,
+.contact {
+  margin-top: 1.8rem;
+
+  @include media-tablet {
+    margin-top: 0;
+  }
+
+  &__title {
+    position: relative;
+  }
+
+  .line {
+    content: '';
+    width: 170px;
+    height: 1px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: $white;
+  }
+
+  &__links {
+    &__item {
+      display: block;
+      margin-top: .6rem;
+
+      &:first-child {
+        margin-top: 1.3rem;
+      }
+    }
+  }
+}
+
+.menu {
+  margin-top: 0;
+}
+
+.contact {
+  a {
+    text-decoration: underline;
+  }
+}

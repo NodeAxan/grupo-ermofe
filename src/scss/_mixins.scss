@@ -1,0 +1,159 @@
+// ===========================
+// * Flexbox Mixins
+// ===========================
+
+@mixin flex($direction, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin f-direction($direction) {
+  flex-direction: $direction;
+}
+
+@mixin f-justify($direction) {
+  justify-content: $direction;
+}
+
+@mixin f-align($direction) {
+  align-items: $direction;
+}
+
+@mixin f-self($direction) {
+  align-self: $direction;
+}
+
+// ===========================
+// * Grid Mixins
+// ===========================
+
+@mixin grid($columns) {
+  display: grid;
+  grid-template-columns: $columns;
+}
+
+@mixin grid-columns($columns) {
+  grid-template-columns: $columns;
+}
+
+@mixin grid-rows($rows) {
+  grid-template-rows: $rows;
+}
+
+@mixin gc-justify($direction) {
+  justify-content: $direction;
+}
+
+@mixin gc-align($direction) {
+  align-content: $direction;
+}
+
+@mixin gi-justify($direction) {
+  justify-items: $direction;
+}
+
+@mixin gi-align($direction) {
+  align-items: $direction;
+}
+
+@mixin gj-self($direction) {
+  justify-self: $direction;
+}
+
+@mixin ga-self($direction) {
+  align-self: $direction;
+}
+
+@mixin gcl-gap($size) {
+  grid-column-gap: $size;
+}
+
+@mixin grw-gap($size) {
+  grid-row-gap: $size;
+}
+
+// ===========================
+// * Media Queries mixins
+// ===========================
+
+// Media query for mobile devices
+
+@mixin media-mobile {
+  @media all and (min-width: $mobile) {
+    @content;
+  }
+}
+
+// Media query for tablet devices
+
+@mixin media-tablet {
+  @media all and (min-width: $tablet) {
+    @content;
+  }
+}
+
+// Media query for desktop devices
+
+@mixin media-desktop {
+  @media all and (min-width: $desktop) {
+    @content;
+  }
+}
+
+// Media query for largeDesktop devices
+
+@mixin media-largeDesktop {
+  @media all and (min-width: $largeDesktop) {
+    @content;
+  }
+}
+
+// ===========================
+// * Font Face Mixins
+// ===========================
+
+// Apply font family
+
+@mixin font-family($font) {
+  font-family: $font, sans-serif;
+  // font-weight: $weight;
+}
+
+// String replace
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// Create the font family
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (eot: "?",
+      svg: "#"+ str-replace($name, " ", "_"));
+
+  $formats: (otf: "opentype",
+      ttf: "truetype"
+    );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}

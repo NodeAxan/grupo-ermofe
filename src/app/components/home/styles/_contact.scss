@@ -1,0 +1,32 @@
+.contact {
+  width: 100%;
+  background-color: $blue;
+
+  &__content {
+    width: 100%;
+    padding: 3rem;
+    margin: 0 auto;
+    max-width: 650px;
+    text-align: center;
+
+    p {
+      line-height: 1.6rem;
+    }
+  }
+
+  &__text {
+    color: $white;
+    font-size: 1rem;
+  }
+
+  &__button {
+    margin-top: 2rem;
+
+    a {
+      color: $black;
+      border-radius: 100px;
+      padding: .6rem 1.6rem;
+      background-color: $white;
+    }
+  }
+}
