@@ -11,8 +11,6 @@ import { FunctionsService } from '../../services/functions.service';
 export class ProductsComponent implements OnInit, AfterViewInit {
 
   public products: any;
-  public numberProducts = 0;
-  public bullet = 0;
 
   constructor(
     private productService: ProductService,

@@ -5,14 +5,14 @@
         Responderemos a la brevedad posible.</p>
     </div>
     <div class="form">
-      <form #contactForm="ngForm" autocomplete="off">
+      <form #contactForm="ngForm" autocomplete="off" (submit)="sendContactForm(client)">
         <legend>Campos obligatorios<span>*</span></legend>
         <div class="input-group">
           <input class="input" type="text" name="name" #name="ngModel" [(ngModel)]="client.name" required>
           <label class="label" for="name">Nombre<span>*</span></label>
         </div>
         <div class="input-group">
-          <input class="input" type="text" name="last-name" #lastName="ngModel" [(ngModel)]="client.lastName" required>
+          <input class="input" type="text" name="last-name" #lastName="ngModel" [(ngModel)]="client.surname" required>
           <label class="label" for="last-name">Apellidos<span>*</span></label>
         </div>
         <div class="input-group">
@@ -31,15 +31,15 @@
     <div class="social-media">
       <div class="social-media__item">
         <span class="mdi mdi-facebook-box"></span>
-        <a href="">Facebook</a>
+        <a href="https://www.facebook.com/gatorbridgemexico/" target="_blank">Facebook</a>
       </div>
       <div class="social-media__item">
         <span class="mdi mdi-email"></span>
-        <a href="mailto:emiranda@grupoermofe.com">emiranda@grupoermofe.com</a>
+        <a href="mailto:info@grupoermofe.com">info@grupoermofe.com</a>
       </div>
       <div class="social-media__item">
         <span class="mdi mdi-phone"></span>
-        <p>01 (993) 316 29 07</p>
+        <a href="tel:9933162907">01 (993) 316 29 07</a>
       </div>
     </div>
   </div>

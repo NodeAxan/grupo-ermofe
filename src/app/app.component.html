@@ -5,6 +5,7 @@
     <div class="hero" #hero>
       <div class="company">
         <div class="company__name">
+          <img src="../assets/img/logo-horizontal-white.svg" alt="Grupo ERMOFE Logo">
           <h1>{{title}}</h1>
         </div>
         <div class="company__slogan">
@@ -12,7 +13,8 @@
         </div>
         <div class="social">
           <div class="social__facebook">
-            <a href=""><span class="icon mdi mdi-facebook-box"></span></a>
+            <a href="https://www.facebook.com/gatorbridgemexico/" target="_blank"><span
+                class="icon mdi mdi-facebook-box"></span></a>
           </div>
           <div class="social__email">
             <a href="mailto:info@grupoermofe.com"><span class="icon mdi mdi-email"></span></a>
@@ -35,6 +37,9 @@
   <main class="container">
     <router-outlet></router-outlet>
   </main>
-</div>
 
-<app-footer (changePage)="className($event)"></app-footer>
+  <div class="fb-customerchat" page_id="1445638198899772" theme_color="#25467F" logged_in_greeting="#25467F"
+    logged_out_greeting="#25467F"></div>
+
+  <app-footer (changePage)="className($event)"></app-footer>
+</div>

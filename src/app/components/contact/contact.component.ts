@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  providers: [UtilsService]
 })
 export class ContactComponent implements OnInit {
 
   public client: object;
   public inputActived: boolean;
 
-  constructor() {
+  constructor(
+    public utilsService: UtilsService
+  ) {
     this.client = {
       name: '',
-      lastName: '',
+      surname: '',
       email: '',
       message: ''
     };
@@ -29,6 +33,17 @@ export class ContactComponent implements OnInit {
     } else {
       e.target.classList.add('input--actived');
     }
+  }
+
+  sendContactForm(email: object) {
+    this.utilsService.sendContactForm(email).subscribe(
+      result => {
+        alert(result);
+      },
+      error => {
+        alert(error);
+      }
+    );
   }
 
 }

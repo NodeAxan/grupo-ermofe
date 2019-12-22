@@ -103,6 +103,41 @@
 .header.contact,
 .header.search {
   height: 70vh;
+
+  .company__name {
+    img {
+      display: none;
+    }
+  }
+}
+
+.header.home {
+  position: relative;
+
+  h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+  }
+
+  .company {
+    &__name {
+      img {
+        width: 80vw;
+        margin: 0 auto;
+        max-width: 660px;
+
+        @media all and (min-width: 500px) and (max-height: 700px) and (orientation: landscape) {
+          width: 45vw;
+        }
+      }
+    }
+
+    &__slogan {
+      display: none;
+    }
+  }
 }
 
 .header.projects {

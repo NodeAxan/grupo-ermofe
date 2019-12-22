@@ -5,10 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ProductService {
 
-  public url: string;
+  private url: string;
 
   constructor(
-    public http: HttpClient
+    private http: HttpClient
   ) {
     this.url = 'https://www.grupoermofe.com/api';
   }

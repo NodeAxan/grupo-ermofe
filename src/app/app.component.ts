@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 @Component({
   selector: 'app-root',
@@ -19,13 +20,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('general', { static: false }) general: ElementRef;
   @ViewChild(NavigationComponent, { static: false }) nav;
 
-  constructor() {
+  constructor(
+    private facebookService: FacebookService
+  ) {
     setTimeout(() => {
       this.className(window.location.href.split('/')[3]);
     }, 250);
   }
 
   ngOnInit() {
+    // this.initFacebook();
   }
 
   ngAfterViewInit() {
@@ -33,6 +37,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.links = this.nav.enlaces;
     this.search = this.nav.search;
     this.heroElement = document.querySelector('.hero');
+  }
+
+  private initFacebook(): void {
+    const initParams: InitParams = { xfbml: true, version: 'v3.2' };
+    this.facebookService.init(initParams);
   }
 
   removeStylesForNav() {

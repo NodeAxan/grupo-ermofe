@@ -5,10 +5,10 @@
       <p>No hay productos existentes...</p>
     </div>
 
-    <div #productsExists class="product__card" *ngFor="let product of products">
+    <div #productsExists class="product__card" *ngFor="let product of products; let i = index">
       <div class="product__title">
         <div class="product__number">
-          <p><span *ngIf="numberProducts <= 9">0</span>{{numberProducts + 1}}</p>
+          <p><span *ngIf="i <= 9">0</span>{{i + 1}}</p>
           <div class="line"></div>
         </div>
         <div class="product__more" (click)="cardActived($event)">

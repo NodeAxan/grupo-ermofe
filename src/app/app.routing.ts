@@ -9,7 +9,6 @@ import { AluminiumComponent } from './components/aluminium/aluminium.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductsComponent } from './components/products/products.component';
-import { CatalogComponent } from './components/catalog/catalog.component';
 import { SearchComponent } from './components/search/search.component';
 
 const appRoutes: Routes = [
@@ -20,7 +19,6 @@ const appRoutes: Routes = [
   { path: 'clients', component: ClientsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'catalog', component: CatalogComponent },
   { path: 'search/:word', component: SearchComponent },
   { path: 'error', component: ErrorComponent },
   { path: '**', component: ErrorComponent }
