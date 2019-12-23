@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     this.projects = false;
     this.projectService.getProjects().subscribe(
       result => {
-        this.projects = result;
+        this.projects = result.filter((project, index) => index < 4);
         setTimeout(() => {
           this.functionsService.carousel();
         }, 2000);

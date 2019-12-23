@@ -115,6 +115,7 @@
   position: relative;
 
   h1 {
+    font-size: .5rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -161,12 +162,6 @@
 .header.clients {
   .hero {
     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-clients.jpg);
-  }
-}
-
-.header.catalog {
-  .hero {
-    background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-catalog.jpg);
   }
 }
 

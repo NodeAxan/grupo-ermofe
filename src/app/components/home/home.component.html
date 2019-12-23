@@ -40,7 +40,7 @@
         <p>No hay proyectos existentes</p>
       </div>
 
-      <div class="cards__content" #projectsExists *ngFor="let project of projects">
+      <div class="cards__content" #projectsExists *ngFor="let project of projects; let i = index">
         <div class="cards__image">
           <div class="glide">
             <div class="glide__track" data-glide-el="track">

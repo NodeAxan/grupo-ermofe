@@ -78,10 +78,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.page = 'clients';
       this.title = 'Clientes';
       this.general.nativeElement.children[0].className = 'header clients';
-    } else if (page === 'catalog') {
-      this.page = 'catalog';
-      this.title = 'Catálogo';
-      this.general.nativeElement.children[0].className = 'header catalog';
     } else if (page === 'contact') {
       this.page = 'contact';
       this.title = 'Contáctanos';
