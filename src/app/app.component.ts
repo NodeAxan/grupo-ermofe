@@ -1,12 +1,12 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
-// import { FacebookService, InitParams } from 'ngx-facebook';
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-  // providers: [FacebookService]
+  styleUrls: ['./app.component.scss'],
+  providers: [FacebookService]
 })
 export class AppComponent implements OnInit, AfterViewInit {
 
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild(NavigationComponent, { static: false }) nav;
 
   constructor(
-    // private facebookService: FacebookService
+    private facebookService: FacebookService
   ) {
     setTimeout(() => {
       this.className(window.location.href.split('/')[3]);
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.initFacebook();
+    this.initFacebook();
   }
 
   ngAfterViewInit() {
@@ -40,10 +40,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.heroElement = document.querySelector('.hero');
   }
 
-  // private initFacebook(): void {
-  //   const initParams: InitParams = { xfbml: true, version: 'v5.0' };
-  //   this.facebookService.init(initParams);
-  // }
+  private initFacebook(): void {
+    const initParams: InitParams = { xfbml: true, version: 'v5.0' };
+    this.facebookService.init(initParams);
+  }
 
   removeStylesForNav() {
     if (this.burger.nativeElement.classList.contains('burger--actived')) {

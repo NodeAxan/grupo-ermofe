@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { routing, appRoutingProviders } from './app.routing';
-// import { FacebookModule } from 'ngx-facebook';
+import { FacebookModule } from 'ngx-facebook';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -37,7 +37,7 @@ import { FooterComponent } from './components/footer/footer.component';
     routing,
     FormsModule,
     HttpClientModule,
-    // FacebookModule.forRoot()
+    FacebookModule.forRoot()
   ],
   providers: [
     appRoutingProviders
