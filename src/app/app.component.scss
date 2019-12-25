@@ -13,87 +13,6 @@
   }
 }
 
-.hero {
-  width: 100%;
-  height: 100%;
-  color: $white;
-  position: relative;
-  background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-index.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.company {
-  width: 100%;
-  height: 100%;
-  @include flex(column);
-  @include f-align(center);
-  @include f-justify(center);
-
-  &__slogan {
-    letter-spacing: .3rem;
-    text-align: center;
-    text-transform: uppercase;
-
-    @media all and (orientation: landscape) {
-      font-size: 1.2rem;
-    }
-  }
-}
-
-.social {
-  margin-top: 1rem;
-  @include flex(row);
-  @include f-align(center);
-  @include f-justify(space-between);
-
-  &__facebook {
-    margin-right: 2rem;
-  }
-
-  a {
-    color: $white;
-    font-size: 1.6rem;
-  }
-}
-
-.scroll {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  display: none;
-  @include f-align(center);
-  @include f-justify(center);
-
-  @include media-desktop {
-    @include flex(row);
-  }
-
-  &__content {
-    text-align: center;
-    background-color: $blue;
-  }
-
-
-  &__text {
-    padding: .6rem 1rem;
-
-    p {
-      padding-top: .3rem;
-    }
-
-    div {
-      animation: floating 2s ease-in-out infinite;
-    }
-
-    span::before {
-      font-size: 1.5rem;
-    }
-  }
-}
-
 // STYLES FOR EACH PAGE
 .header.projects,
 .header.aluminium,
@@ -174,5 +93,87 @@
 .header.search {
   .hero {
     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-search.jpg);
+  }
+}
+
+// HERO'S STYLES
+.hero {
+  width: 100%;
+  height: 100%;
+  color: $white;
+  position: relative;
+  background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-index.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.company {
+  width: 100%;
+  height: 100%;
+  @include flex(column);
+  @include f-align(center);
+  @include f-justify(center);
+
+  &__slogan {
+    letter-spacing: .3rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media all and (orientation: landscape) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.social {
+  margin-top: 1rem;
+  @include flex(row);
+  @include f-align(center);
+  @include f-justify(space-between);
+
+  &__facebook {
+    margin-right: 2rem;
+  }
+
+  a {
+    color: $white;
+    font-size: 1.6rem;
+  }
+}
+
+.scroll {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: none;
+  @include f-align(center);
+  @include f-justify(center);
+
+  @include media-desktop {
+    @include flex(row);
+  }
+
+  &__content {
+    text-align: center;
+    background-color: $blue;
+  }
+
+
+  &__text {
+    padding: .6rem 1rem;
+
+    p {
+      padding-top: .3rem;
+    }
+
+    div {
+      animation: floating 2s ease-in-out infinite;
+    }
+
+    span::before {
+      font-size: 1.5rem;
+    }
   }
 }

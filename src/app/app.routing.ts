@@ -20,8 +20,7 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'search/:word', component: SearchComponent },
-  { path: 'error', component: ErrorComponent },
-  { path: '**', component: ErrorComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 export const appRoutingProviders: any[] = [];

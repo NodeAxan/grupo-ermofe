@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private facebookService: FacebookService
   ) {
     setTimeout(() => {
-      this.className(window.location.href.split('/')[3]);
+      this.className(window.location.href.split('/')[4]);
     }, 250);
   }
 

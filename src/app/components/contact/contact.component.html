@@ -5,27 +5,30 @@
         Responderemos a la brevedad posible.</p>
     </div>
     <div class="form">
-      <form #contactForm="ngForm" autocomplete="off" (submit)="sendContactForm(client)">
+      <form #contactForm="ngForm" autocomplete="off" (submit)="sendContactForm(client, contactForm)">
         <legend>Campos obligatorios<span>*</span></legend>
         <div class="input-group">
           <input class="input" type="text" name="name" #name="ngModel" [(ngModel)]="client.name" required>
           <label class="label" for="name">Nombre<span>*</span></label>
+          <span *ngIf="name.touched && !name.valid">Campo requerido</span>
         </div>
         <div class="input-group">
           <input class="input" type="text" name="last-name" #lastName="ngModel" [(ngModel)]="client.surname" required>
           <label class="label" for="last-name">Apellidos<span>*</span></label>
+          <span *ngIf="last-name.touched && !last-name.valid">Campo requerido</span>
         </div>
         <div class="input-group">
           <input class="input" type="text" name="email" #email="ngModel" [(ngModel)]="client.email" required>
           <label class="label" for="email">Email<span>*</span></label>
+          <span *ngIf="validEmailInput">{{validEmailInput}}</span>
         </div>
         <div class="input-group">
           <textarea class="input" name="message" #message="ngModel" [(ngModel)]="client.message" required></textarea>
           <label class="label" for="message">Asunto<span>*</span></label>
+          <span *ngIf="message.touched && !message.valid">Campo requerido</span>
         </div>
-        <button type="submit" [ngClass]="{disabled: !contactForm.form.valid}"
-          [disabled]="!contactForm.form.valid">Enviar
-          <span class="mdi mdi-send"></span></button>
+        <button class="btnContactForm" type="submit" [ngClass]="{disabled: !contactForm.form.valid}"
+          [disabled]="!contactForm.form.valid" (click)="disabledButton('disabled')">Enviar</button>
       </form>
     </div>
     <div class="social-media">
@@ -43,4 +46,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="contact__alert" *ngIf="formMessage">
+  <p>{{formMessage}}</p>
 </div>

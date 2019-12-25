@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { routing, appRoutingProviders } from './app.routing';
@@ -40,7 +42,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FacebookModule.forRoot()
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
