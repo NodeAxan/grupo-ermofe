@@ -46,15 +46,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   removeStylesForNav() {
-    if (this.burger.nativeElement.classList.contains('burger--actived')) {
-      this.burger.nativeElement.classList.remove('burger--actived');
-    }
-    if (this.links.nativeElement.classList.contains('links--actived')) {
-      this.links.nativeElement.classList.remove('links--actived');
-    }
-    if (this.search.nativeElement.classList.contains('search--actived')) {
-      this.search.nativeElement.classList.remove('search--actived');
-    }
+    this.burger.nativeElement.classList.remove('burger--actived');
+    this.links.nativeElement.classList.remove('links--actived');
+    this.search.nativeElement.classList.remove('search--actived');
   }
 
   className(page) {

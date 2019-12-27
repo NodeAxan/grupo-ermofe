@@ -1,29 +1,11 @@
 <div class="clients">
   <div class="clients__content">
-    <div class="clients__image">
-      <img src="../../../assets/img/clients/calco.png" alt="">
-    </div>
-    <div class="clients__image">
-      <img src="../../../assets/img/clients/coconal.png" alt="">
-    </div>
-    <div class="clients__image">
-      <img src="../../../assets/img/clients/gordillo.png" alt="">
-    </div>
-    <div class="clients__image">
-      <img src="../../../assets/img/clients/sct.png" alt="">
+    <div class="clients__text" *ngIf="!loading; else clientsList">
+      <p>Cargando...</p>
     </div>
 
-    <div class="clients__image">
-      <img src="../../../assets/img/clients/escudero.png" alt="">
-    </div>
-    <div class="clients__image">
-      <img src="../../../assets/img/clients/hycsa.png" alt="">
-    </div>
-    <div class="clients__image">
-      <img src="../../../assets/img/clients/tecnicos_chiapas.png" alt="">
-    </div>
-    <div class="clients__image">
-      <img src="../../../assets/img/clients/sopyc.png" alt="">
+    <div class="clients__image" #clientsList *ngFor="let client of clients">
+      <img src="{{urlImage}}/{{client.picture}}">
     </div>
   </div>
 </div>
