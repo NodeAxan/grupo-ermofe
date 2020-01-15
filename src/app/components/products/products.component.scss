@@ -14,20 +14,23 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
-    max-width: 1100px;
+    margin-top: 2rem;
+    max-width: 1300px;
+
+    @include media-desktop {
+      @include grid(repeat(2, calc(50% - 2rem)));
+      grid-gap: 3rem;
+    }
   }
 
   &__card {
     width: 100%;
+    margin: 0 auto;
     overflow: hidden;
+    max-width: 694px;
     border-radius: 10px;
-    margin-bottom: 3rem;
     background-color: $white;
     box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
-
-    &:last-child {
-      margin-bottom: 3rem;
-    }
 
     &--actived {
       .product__overlay {
@@ -92,11 +95,11 @@
     }
 
     @include media-tablet {
-      height: 360px;
+      height: 320px;
 
       li,
       img {
-        height: 360px;
+        height: 320px;
       }
     }
   }
