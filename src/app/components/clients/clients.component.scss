@@ -12,6 +12,7 @@
     width: 100%;
     @include grid(repeat(2, calc(50% - 1rem)));
     grid-gap: 2rem;
+    align-items: center;
 
     @media all and (min-width: 580px) {
       padding: 0 4rem;

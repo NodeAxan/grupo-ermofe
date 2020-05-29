@@ -132,8 +132,12 @@
   @include f-align(center);
   @include f-justify(space-between);
 
-  &__facebook {
-    margin-right: 2rem;
+  &__item {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   a {
