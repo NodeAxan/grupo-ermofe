@@ -26,15 +26,13 @@
         <div class="line"></div>
       </div>
       <div class="products__links">
-        <p class="products__links__item">Puentes Peatonales</p>
-        <p class="products__links__item">Parapentos Vehículares</p>
-        <p class="products__links__item">Rejillas Industriales</p>
-        <p class="products__links__item">Muelles GatorDock</p>
+        <p class="products__links__item" *ngFor="let product of products">{{product.name}}</p>
       </div>
     </div>
     <div class="contact">
       <div class="contact__title">
-        <h4>Contacto</h4>
+        <h4><a (click)="currentPage('contact')" [routerLink]="['/contact']"
+            [ngStyle]="{'text-decoration': 'none'}">Contacto</a></h4>
         <div class="line"></div>
       </div>
       <div class="contact__links">

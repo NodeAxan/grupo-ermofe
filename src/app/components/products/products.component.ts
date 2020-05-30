@@ -11,6 +11,7 @@ import { FunctionsService } from '../../services/functions.service';
 export class ProductsComponent implements OnInit, AfterViewInit {
 
   public products: any;
+  public productsExists = false;
 
   constructor(
     private productService: ProductService,
@@ -35,7 +36,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     this.productService.getProducts().subscribe(
       result => {
         this.products = result;
-        console.log(this.products);
         setTimeout(() => {
           this.functionsService.carousel();
         }, 2000);
