@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { api } from '../global/variable.global';
 
 @Injectable()
 export class ProjectService {
@@ -10,7 +11,7 @@ export class ProjectService {
   constructor(
     public http: HttpClient
   ) {
-    this.url = 'https://www.grupoermofe.com/api';
+    this.url = api.url;
   }
 
   getProjects(): Observable<any> {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { api } from '../global/variable.global';
 
 @Injectable()
 export class ProductService {
@@ -10,7 +11,7 @@ export class ProductService {
   constructor(
     private http: HttpClient
   ) {
-    this.url = 'https://www.grupoermofe.com/api';
+    this.url = api.url;
   }
 
   getProducts(): Observable<any> {

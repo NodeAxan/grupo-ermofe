@@ -14,12 +14,21 @@
 </div>
 
 <div class="projects">
-  <div class="projects__empty" *ngIf="!projects; else projectsExists">
-    <p>No hay proyectos existentes</p>
-  </div>
+  <ng-container *ngIf="loading; else noThere">
+    <div class="projects__empty">
+      <p>Cargando...</p>
+    </div>
+  </ng-container>
+
+  <ng-template #noThere>
+    <ng-container *ngIf="!projects; else projectsExists">
+      <div class="projects__empty">
+        <p>No hay proyectos existentes...</p>
+      </div>
+    </ng-container>
+  </ng-template>
 
   <ng-template #projectsExists>
-
     <div class="cards">
       <div class="cards__content" *ngFor="let project of projects">
         <div class="cards__image">
@@ -57,6 +66,5 @@
         </div>
       </div>
     </div>
-
   </ng-template>
 </div>

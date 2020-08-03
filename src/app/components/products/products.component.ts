@@ -3,47 +3,43 @@ import { ProductService } from '../../services/product.service';
 import { FunctionsService } from '../../services/functions.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
-  providers: [ProductService, FunctionsService]
+	selector: 'app-products',
+	templateUrl: './products.component.html',
+	styleUrls: [ './products.component.scss' ],
+	providers: [ ProductService, FunctionsService ]
 })
 export class ProductsComponent implements OnInit, AfterViewInit {
+	public products: any;
+	public loading = true;
 
-  public products: any;
-  public productsExists = false;
+	constructor(private productService: ProductService, private functionsService: FunctionsService) {}
 
-  constructor(
-    private productService: ProductService,
-    private functionsService: FunctionsService
-  ) { }
+	ngOnInit() {
+		this.getProducts();
+	}
 
-  ngOnInit() {
-    this.getProducts();
-  }
+	ngAfterViewInit() {}
 
-  ngAfterViewInit() {
-  }
+	cardActived(e) {
+		e.target.classList.toggle('mdi-plus');
+		e.target.classList.toggle('mdi-minus');
+		e.target.parentElement.parentElement.parentElement.classList.toggle('product__card--actived');
+	}
 
-  cardActived(e) {
-    e.target.classList.toggle('mdi-plus');
-    e.target.classList.toggle('mdi-minus');
-    e.target.parentElement.parentElement.parentElement.classList.toggle('product__card--actived');
-  }
-
-  getProducts() {
-    this.products = false;
-    this.productService.getProducts().subscribe(
-      result => {
-        this.products = result;
-        setTimeout(() => {
-          this.functionsService.carousel();
-        }, 2000);
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
+	getProducts() {
+		this.products = false;
+		this.productService.getProducts().subscribe(
+			(result) => {
+				this.products = result.filter((product) => product.pictures.length > 0);
+				this.loading = false;
+				console.log(this.products);
+				setTimeout(() => {
+					this.functionsService.carousel();
+				}, 2000);
+			},
+			(error) => {
+				console.log(error);
+			}
+		);
+	}
 }

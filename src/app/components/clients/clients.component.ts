@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
+import { api } from 'src/app/global/variable.global';
 
 @Component({
   selector: 'app-clients',
@@ -16,7 +17,7 @@ export class ClientsComponent implements OnInit {
   constructor(
     private clientService: ClientService
   ) {
-    this.urlImage = 'https://www.grupoermofe.com/api/img';
+    this.urlImage = `${api.url}/img`;
   }
 
   ngOnInit() {

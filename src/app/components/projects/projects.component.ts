@@ -15,6 +15,7 @@ export class ProjectsComponent implements OnInit {
   private options: any;
   public categories: any;
   public projectsFiltered: any;
+  public loading = true;
 
   constructor(
     private projectService: ProjectService,
@@ -32,19 +33,17 @@ export class ProjectsComponent implements OnInit {
   }
 
   getProjects() {
+    this.projects = false;
+    this.projectsFiltered = false;
     this.projectService.getProjects().subscribe(
       result => {
-        if (result.length === 0) {
-          this.projects = false;
-          this.projectsFiltered = false;
-        } else {
-          this.projects = result;
-          this.projectsFiltered = result;
-          setTimeout(() => {
-            this.functionsService.videoControls();
-            this.functionsService.carousel();
-          }, 2000);
-        }
+        this.projects = result;
+        this.projectsFiltered = result;
+        this.loading = false;
+        setTimeout(() => {
+          this.functionsService.videoControls();
+          this.functionsService.carousel();
+        }, 2000);
       },
       error => {
         console.log(error);
@@ -64,8 +63,10 @@ export class ProjectsComponent implements OnInit {
   }
 
   filterProjects(category: string) {
-    this.projects = this.projectsFiltered.filter(project => project.category === category);
-    if (this.projects == 0) { this.projects = false; }
+    if (this.projects) {
+      this.projects = this.projectsFiltered.filter(project => project.category === category);
+      if (this.projects.length == 0) { this.projects = false; }
+    }
   }
 
   activedOption(e: any) {
