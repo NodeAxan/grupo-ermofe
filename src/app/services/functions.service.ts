@@ -21,8 +21,16 @@ export class FunctionsService {
   }
 
   cardActived(e) {
-    e.target.classList.toggle('mdi-plus');
-    e.target.classList.toggle('mdi-minus');
+    if (e.target.classList.contains('plus')) {
+      e.target.style.display = e.target.style.display === 'none' ? 'block' : 'none';
+      e.target.nextElementSibling.style.display = e.target.style.display === 'block' ? 'none' : 'block';
+    }
+
+    if (e.target.classList.contains('minus')) {
+      e.target.style.display = e.target.style.display === 'none' ? 'block' : 'none';
+      e.target.previousSibling.style.display = e.target.style.display === 'block' ? 'none' : 'block';
+    }
+
     e.target.parentElement.parentElement.previousSibling.classList.toggle('cards__image--actived');
   }
 

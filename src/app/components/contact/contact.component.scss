@@ -141,6 +141,7 @@
   }
 
   &__item {
+    margin-top: .65rem;
     @include flex(row);
     @include f-align(center);
   }
