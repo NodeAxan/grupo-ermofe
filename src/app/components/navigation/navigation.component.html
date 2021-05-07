@@ -33,6 +33,8 @@
           routerLinkActive="links__item--actived">Clientes</a>
         <a class="links__item" (click)="currentPage('contact')" [routerLink]="['/contact']"
           routerLinkActive="links__item--actived">Contacto</a>
+        <a class="links__item" (click)="currentPage('about')" [routerLink]="['/about']"
+          routerLinkActive="links__item--actived">Nosotros</a>
       </nav>
       <div class="burger" #burger (click)="burgerActived()">
         <div class="burger__item line"></div>

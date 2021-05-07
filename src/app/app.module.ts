@@ -19,6 +19,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchComponent } from './components/search/search.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ContactComponent,
     ProductsComponent,
     SearchComponent,
-    FooterComponent
+    FooterComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,

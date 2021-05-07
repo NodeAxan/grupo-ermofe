@@ -10,6 +10,7 @@ import { ClientsComponent } from './components/clients/clients.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchComponent } from './components/search/search.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'clients', component: ClientsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'about', component: NosotrosComponent },
   { path: 'search/:word', component: SearchComponent },
   { path: '**', component: HomeComponent }
 ];
