@@ -52,6 +52,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   className(page) {
+    console.log(page);
     if (page === 'home' || page === '') {
       this.page = 'home';
       this.title = 'Grupo ERMOFE';
@@ -80,6 +81,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.page = 'search';
       this.title = 'Búsqueda';
       this.general.nativeElement.children[0].className = 'header search';
+    } else if (page === 'about') {
+      this.page = 'about';
+      this.title = 'Nosotros';
+      this.general.nativeElement.children[0].className = 'header about';
     }
   }
 

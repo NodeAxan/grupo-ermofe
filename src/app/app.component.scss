@@ -20,7 +20,8 @@
 .header.clients,
 .header.catalog,
 .header.contact,
-.header.search {
+.header.search,
+.header.about {
   height: 70vh;
 
   .company__name {
@@ -84,7 +85,8 @@
   }
 }
 
-.header.contact {
+.header.contact,
+.header.about {
   .hero {
     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-contact.jpg);
   }

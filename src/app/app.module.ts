@@ -19,7 +19,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchComponent } from './components/search/search.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
     ProductsComponent,
     SearchComponent,
     FooterComponent,
-    NosotrosComponent
+    AboutComponent
   ],
   imports: [
     BrowserModule,
