@@ -10,6 +10,7 @@ import { BlogService } from '../../services/blog.service';
 export class BlogComponent implements OnInit {
 
   public loading = true;
+  public articles: any;
 
   constructor(
     private blogService: BlogService
@@ -23,10 +24,13 @@ export class BlogComponent implements OnInit {
     this.loading = true;
     this.blogService.getArticles().subscribe(
       result => {
-        console.log(result);
+        console.log(result.data);
+        this.articles = result.data;
+        this.loading = false;
       },
       error => {
         console.error(error);
+        this.loading = false;
       }
     );
   }
