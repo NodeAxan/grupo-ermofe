@@ -11,6 +11,7 @@ export class FooterComponent implements OnInit {
 
   public page: string;
   public products: any;
+  public year: number = new Date().getFullYear();
 
   @Output() public changePage = new EventEmitter();
 
