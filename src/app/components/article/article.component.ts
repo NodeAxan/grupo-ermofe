@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
@@ -11,25 +10,28 @@ import { BlogService } from 'src/app/services/blog.service';
 export class ArticleComponent implements OnInit {
 
   public loading: boolean = true;
-  private url: string;
   private article: any;
 
+  @Input() public url = '';
+  @Output() public noUrl = new EventEmitter<string>();
+
   constructor(
-    private activedRouter: ActivatedRoute,
     private blogService: BlogService
   ) { }
 
   ngOnInit() {
-    this.activedRouter.paramMap.subscribe((params: any) => {
-      this.url = params.get('url');
-      this.getArticle();
-    });
+    this.getArticle();
+  }
+
+  setNoUrl(url: string) {
+    this.noUrl.emit(url);
   }
 
   getArticle() {
     this.blogService.getArticle(this.url).subscribe(
       result => {
         this.article = result.data;
+        console.log(this.article);
         this.loading = false;
       },
       error => {

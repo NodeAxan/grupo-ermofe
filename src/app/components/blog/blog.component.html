@@ -1,4 +1,4 @@
-<div class="articles">
+<div class="articles" *ngIf="!url">
   <div class="articles__content">
     <ng-container *ngIf="loading; else noThere">
       <div class="articles__empty">
@@ -21,7 +21,7 @@
             </div>
             <div class="newCard__info" [innerHtml]="article.attributes.body.processed | textTransformPipe"></div>
             <div class="newCard__more">
-              <a class="links__item" (click)="currentPage('article')" [routerLink]="['/article', article.links.self.href]">Ver más</a>
+              <button (click)="selectUrl(article.links.self.href)">Ver más</button>
             </div>
           </div>
         </div>
@@ -29,3 +29,5 @@
     </ng-template>
   </div>
 </div>
+
+<app-article *ngIf="url" [url]="url" (noUrl)="selectUrl($event)"></app-article>

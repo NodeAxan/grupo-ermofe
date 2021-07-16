@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'events';
 import { BlogService } from '../../services/blog.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class BlogComponent implements OnInit {
 
   public loading = true;
   public articles: any;
+  public url: string;
 
   constructor(
     private blogService: BlogService
@@ -18,6 +20,10 @@ export class BlogComponent implements OnInit {
 
   ngOnInit() {
     this.getArticles();
+  }
+
+  selectUrl(url: string) {
+    this.url = url;
   }
 
   getArticles() {
