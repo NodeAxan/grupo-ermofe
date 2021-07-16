@@ -21,6 +21,7 @@ import { SearchComponent } from './components/search/search.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { TextTransformPipe } from './pipes/text-transform-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BlogComponent } from './components/blog/blog.component';
     SearchComponent,
     FooterComponent,
     AboutComponent,
-    BlogComponent
+    BlogComponent,
+    TextTransformPipe
   ],
   imports: [
     BrowserModule,

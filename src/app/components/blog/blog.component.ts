@@ -24,7 +24,6 @@ export class BlogComponent implements OnInit {
     this.loading = true;
     this.blogService.getArticles().subscribe(
       result => {
-        console.log(result.data);
         this.articles = result.data;
         this.loading = false;
       },
