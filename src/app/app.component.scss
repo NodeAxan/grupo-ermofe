@@ -22,7 +22,8 @@
 .header.contact,
 .header.search,
 .header.about,
-.header.blog {
+.header.blog,
+.header.article {
   height: 70vh;
 
   .company__name {
@@ -88,7 +89,8 @@
 
 .header.contact,
 .header.about,
-.header.blog {
+.header.blog,
+.header.article {
   .hero {
     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-contact.jpg);
   }

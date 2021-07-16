@@ -21,7 +21,7 @@
             </div>
             <div class="newCard__info" [innerHtml]="article.attributes.body.processed | textTransformPipe"></div>
             <div class="newCard__more">
-              <button>Ver más</button>
+              <a class="links__item" (click)="currentPage('article')" [routerLink]="['/article', article.links.self.href]">Ver más</a>
             </div>
           </div>
         </div>
