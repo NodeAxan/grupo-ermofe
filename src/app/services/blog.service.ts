@@ -18,4 +18,8 @@ export class BlogService {
     return this.http.get(`${this.url}/jsonapi/node/article`);
   }
 
+  getArticle(url: string): Observable<any> {
+    return this.http.get(url);
+  }
+
 }
