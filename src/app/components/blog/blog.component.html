@@ -20,6 +20,9 @@
               <p>{{article.attributes.title}}</p>
             </div>
             <div class="newCard__info" [innerHtml]="article.attributes.body.processed | textTransformPipe"></div>
+            <div class="newCard__more">
+              <button>Ver más</button>
+            </div>
           </div>
         </div>
       </div>
