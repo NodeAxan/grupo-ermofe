@@ -101,6 +101,11 @@ footer {
   max-width: 1800px;
 }
 
+blockquote {
+  font-style: italic;
+  margin-left: 1rem;
+}
+
 .logo {
   width: 32px;
   height: 32px;
@@ -210,10 +215,12 @@ footer {
 
   &__content {
     padding: 2rem;
+    height: 100%;
   }
 
   &__info {
     font-size: 1rem;
+    margin-bottom: 2rem;
 
     & > div > * {
       margin-bottom: 1rem;

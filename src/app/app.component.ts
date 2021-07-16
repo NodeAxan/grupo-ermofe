@@ -52,7 +52,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   className(page) {
-    console.log(page)
     if (page === 'home' || page === '') {
       this.page = 'home';
       this.title = 'Grupo ERMOFE';

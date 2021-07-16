@@ -100,6 +100,31 @@
   </div>
 </div>
 
+<div class="blog">
+  <div class="blog__content">
+    <div class="blog__title">
+      <h2>Conoce nuestro blog</h2>
+      <h3>Publicaciones recientes</h3>
+    </div>
+    <div class="blog__articles">
+      <app-blog [queryParams]="query" (urlToHome)="selectUrl($event)" [urlHome]="url"></app-blog>
+      <!-- <div class="newCards">
+        <div class="newCard" *ngFor="let article of articles">
+          <div class="newCard__content">
+            <div class="newCard__title">
+              <p>{{article.attributes.title}}</p>
+            </div>
+            <div class="newCard__info" [innerHtml]="article.attributes.body.summary | textTransformPipe"></div>
+            <div class="newCard__more">
+              <button (click)="selectUrl(article.links.self.href)">Ver más</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
 <div class="contact">
   <div class="contact__content">
     <div class="contact__text">

@@ -1,5 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 
 @Component({
@@ -14,11 +14,20 @@ export class BlogComponent implements OnInit {
   public articles: any;
   public url: string;
 
+  @Input() queryParams = '';
+  @Input() urlHome = '';
+
+  @Output() urlToHome = new EventEmitter<string>();
+
   constructor(
-    private blogService: BlogService
+    private blogService: BlogService,
+    private activedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.activedRoute.queryParams.subscribe(params => {
+      if (params.urlHome) this.url = params.urlHome;
+    });
     this.getArticles();
   }
 
@@ -26,9 +35,13 @@ export class BlogComponent implements OnInit {
     this.url = url;
   }
 
+  setUrlToHome(url: string) {
+    this.urlToHome.emit(url);
+  }
+
   getArticles() {
     this.loading = true;
-    this.blogService.getArticles().subscribe(
+    this.blogService.getArticles(this.queryParams).subscribe(
       result => {
         this.articles = result.data;
         this.loading = false;

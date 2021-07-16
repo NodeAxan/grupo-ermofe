@@ -14,8 +14,8 @@ export class BlogService {
     this.url = api.urlBlog;
   }
 
-  getArticles(): Observable<any> {
-    return this.http.get(`${this.url}/jsonapi/node/article`);
+  getArticles(search: string): Observable<any> {
+    return this.http.get(`${this.url}/jsonapi/node/article?${search}`);
   }
 
   getArticle(url: string): Observable<any> {

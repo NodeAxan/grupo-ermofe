@@ -31,7 +31,6 @@ export class ArticleComponent implements OnInit {
     this.blogService.getArticle(this.url).subscribe(
       result => {
         this.article = result.data;
-        console.log(this.article);
         this.loading = false;
       },
       error => {
