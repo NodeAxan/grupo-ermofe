@@ -19,7 +19,7 @@
             <div class="newCard__title">
               <p>{{article.attributes.title}}</p>
             </div>
-            <div class="newCard__info" [innerHtml]="article.attributes.body.processed | textTransformPipe"></div>
+            <div class="newCard__info" [innerHtml]="article.attributes.body.processed | textTransformPipe: true"></div>
             <div class="newCard__more">
               <button (click)="selectUrl(article.links.self.href)">Ver más</button>
             </div>

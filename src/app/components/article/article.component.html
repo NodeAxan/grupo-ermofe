@@ -17,6 +17,9 @@
     </ng-template>
     <ng-template #articlesExists>
       <div class="article__item">
+        <div class="article__title">
+          <h2>{{article.attributes.title}}</h2>
+        </div>
         <div class="article__info" [innerHtml]="article.attributes.body.processed | textTransformPipe"></div>
       </div>
     </ng-template>
