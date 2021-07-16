@@ -88,11 +88,16 @@
 }
 
 .header.contact,
-.header.about,
+.header.about {
+  .hero {
+    background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-contact.jpg);
+  }
+}
+
 .header.blog,
 .header.article {
   .hero {
-    background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-contact.jpg);
+    background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-blog.jpg);
   }
 }
 
