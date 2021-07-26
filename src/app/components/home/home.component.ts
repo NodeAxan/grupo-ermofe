@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public projects: any;
-  public query: string = 'page[limit]=3';
+  public query: string = 'page[limit]=3&sort=-created';
   public url: string;
 
   constructor(
