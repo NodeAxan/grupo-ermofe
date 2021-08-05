@@ -6,42 +6,26 @@
         tecnologías al ramo de la construcción con el fin de brindar los mejores productos y servicios a nuestro país.
       </p>
     </div>
-    <div>
+
+    <div style="margin: 4.5rem 0;">
       <div class="timeline">
-        <div class="container right dot">
-          <div class="content">
-            <div class="info">
-              <div class="title">1990</div>
-              <div class="text">Nuestro fundador después de graduarse de ingeniero civil, comenzó a trabajar con su
-                papá,
-                quien desde pequeño inculcó, el gusto por esta profesión, realizando obras como puentes tubulares y
-                ploteos.</div>
+        <span *ngFor='let item of timeline; let i = index'>
+          <div class="container"
+            [ngClass]="{'right': i % 2 === 0, 'left': i % 2 !== 0, 'dot': i === 0, 'chevron': i !== 0}">
+            <div class="content">
+              <div class="image" *ngIf="item.img">
+                <img src="{{item.img}}" alt="image">
+              </div>
+              <div class="info">
+                <div class="title">{{item.title}}</div>
+                <div class="text">{{item.text}}</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="container left chevron">
-          <div class="content">
-            <div class="image">
-              <img src="../../../assets/img/banners/banner-contact.jpg" alt="background card">
-            </div>
-            <div class="info">
-              <div class="title">1993</div>
-              <div class="text">Decidió emprender por su cuenta, realizando diferentes tipos de proyectos para el sector
-                público y privado.</div>
-            </div>
-          </div>
-        </div>
-        <div class="container right chevron">
-          <div class="content">
-            <div class="info">
-              <div class="title">2003</div>
-              <div class="text">Por la alta demanda de obras en el estado de Tabasco, que constituye formalmente GRUPO
-                ERMOFE. Realizando puentes, escuelas y obras privadas.</div>
-            </div>
-          </div>
-        </div>
+        </span>
       </div>
     </div>
+
     <div class="about__text">
       <p>Al pasar los años GRUPO ERMOFE ha ido creciendo, formando un equipo de trabajo multidisciplinario; nuestros
         colaboradores administrativos están día a día actualizándose para brindar el mejor servicio en cada una de sus
