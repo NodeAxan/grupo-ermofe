@@ -46,7 +46,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   doScroll() {
-    window.scrollTo(0, 877);
+    if (this.page.includes('home')) return window.scrollTo(0, 877);
+    window.scrollTo(0, 589);
   }
 
   removeStylesForNav() {
