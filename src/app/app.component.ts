@@ -45,6 +45,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.facebookService.init(initParams);
   }
 
+  doScroll() {
+    window.scrollTo(0, 877);
+  }
+
   removeStylesForNav() {
     this.burger.nativeElement.classList.remove('burger--actived');
     this.links.nativeElement.classList.remove('links--actived');
