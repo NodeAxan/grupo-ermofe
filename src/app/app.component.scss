@@ -87,10 +87,15 @@
   }
 }
 
-.header.contact,
-.header.about {
+.header.contact {
   .hero {
     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-contact.jpg);
+  }
+}
+
+.header.about {
+  .hero {
+    background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-about.png);
   }
 }
 
