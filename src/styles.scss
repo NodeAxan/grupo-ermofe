@@ -324,7 +324,7 @@ blockquote {
 }
 
 .align-center {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+  display: block !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
 }
