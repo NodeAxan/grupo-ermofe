@@ -10,7 +10,7 @@ export class AboutComponent implements OnInit {
   public timeline: { title: string, text: string, img?: string }[] = [
     {
       title: '1990',
-      text: 'Nuestro fundador, al graduarse de ingeniero civil, comenzó a trabajar con su papá quien desde pequeño inculcó en él, el gusto por la ingeniería civil, realizando obras como puentes tubulares y piloteos.',
+      text: 'Nuestro fundador, al graduarse de ingeniero civil, comenzó a trabajar con su padre quien desde pequeño inculcó en él, el gusto por la ingeniería civil, realizando obras como puentes tubulares y piloteos.',
       img: '../../../assets/img/about/2-ernestos.jpg'
     },
     {
@@ -35,7 +35,7 @@ export class AboutComponent implements OnInit {
     },
     {
       title: '2015',
-      text: 'Hay una Instalamos el primer puente peatonal de aluminio marino en la ciudad de Villahermosa, Tabasco.',
+      text: 'Instalamos el primer puente peatonal de aluminio marino en la ciudad de Villahermosa, Tabasco.',
       img: '../../../assets/img/about/primer-puente-peatonal.jpg'
     },
     {
