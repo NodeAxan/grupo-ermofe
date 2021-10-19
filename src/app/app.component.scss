@@ -63,13 +63,13 @@
   }
 }
 
-.header.projects {
+.header.projects, .header.about {
   .hero {
     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-projects.jpg);
   }
 }
 
-.header.aluminium {
+.header.aluminium, .header.blog, .header.article {
   .hero {
     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-aluminium.jpg);
   }
@@ -93,18 +93,18 @@
   }
 }
 
-.header.about {
-  .hero {
-    background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-about.png);
-  }
-}
+// .header.about {
+//   .hero {
+//     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-about.png);
+//   }
+// }
 
-.header.blog,
-.header.article {
-  .hero {
-    background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-blog.jpg);
-  }
-}
+// .header.blog,
+// .header.article {
+//   .hero {
+//     background-image: linear-gradient(rgba(26, 48, 86, .7), rgba(26, 48, 86, .7)), url(../assets/img/banners/banner-blog.jpg);
+//   }
+// }
 
 .header.search {
   .hero {

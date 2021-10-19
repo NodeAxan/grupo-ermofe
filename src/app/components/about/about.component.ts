@@ -26,7 +26,7 @@ export class AboutComponent implements OnInit {
     {
       title: '2012',
       text: 'El hijo de nuestro fundador siguió los pasos de su padre y, al graduarse de ingeniero civil, comienza a trabajar en empresas privadas en el estado de Jalisco, adquiriendo conocimiento y experiencia.',
-      img: '../../../assets/img/about/3-ernestos.jpg'
+      img: '../../../assets/img/about/3-ernestos.png'
     },
     {
       title: '2014',
@@ -36,12 +36,12 @@ export class AboutComponent implements OnInit {
     {
       title: '2015',
       text: 'Instalamos el primer puente peatonal de aluminio marino en la ciudad de Villahermosa, Tabasco.',
-      img: '../../../assets/img/about/primer-puente-peatonal.jpg'
+      img: '../../../assets/img/about/primer-puente-peatonal.png'
     },
     {
       title: '2019',
       text: 'Este año nos posicionamos al frente del mercado, instalando más de 10 estructuras de aluminio marino, entre ellas, el puente más largo sin apoyo intermedio y los parapetos del nuevo puente La Unidad en Campeche.',
-      img: '../../../assets/img/about/parapeto.jpg'
+      img: '../../../assets/img/about/parapeto.png'
     }
   ];
 
