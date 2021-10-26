@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Modules
 import { HomeComponent } from './components/home/home.component';
-import { ErrorComponent } from './components/error/error.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AluminiumComponent } from './components/aluminium/aluminium.component';
 import { ClientsComponent } from './components/clients/clients.component';

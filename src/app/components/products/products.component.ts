@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { FunctionsService } from '../../services/functions.service';
+import { ProductEntry } from '../../../interfaces/product';
+import { api } from '../../global/variable.global';
 
 @Component({
   selector: 'app-products',
@@ -9,8 +11,9 @@ import { FunctionsService } from '../../services/functions.service';
   providers: [ProductService, FunctionsService]
 })
 export class ProductsComponent implements OnInit, AfterViewInit {
-  public products: any;
+  public products: ProductEntry[];
   public loading = true;
+  public cockpitUrl = api.cockpit;
 
   constructor(private productService: ProductService, private functionsService: FunctionsService) { }
 
@@ -35,10 +38,10 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   }
 
   getProducts() {
-    this.products = false;
+    this.products = [];
     this.productService.getProducts().subscribe(
       (result) => {
-        this.products = result.filter((product) => product.pictures.length > 0);
+        this.products = result.entries;
         this.loading = false;
         setTimeout(() => {
           this.functionsService.carousel();

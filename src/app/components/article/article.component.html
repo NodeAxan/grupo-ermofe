@@ -1,26 +1,22 @@
 <div class="article">
   <div class="article__content">
     <div class="article__back">
-      <button (click)="setNoUrl('')">Volver</button>
+      <button (click)="returnBlogHome()">Volver</button>
     </div>
-    <ng-container *ngIf="loading; else noThere">
+    <ng-container *ngIf="!article; else articlesExists">
       <div class="articles__empty">
-        <p>Cargando...</p>
+        <p>No fue posible obtener los datos del artículo seleccionado...</p>
       </div>
     </ng-container>
-    <ng-template #noThere>
-      <ng-container *ngIf="!article; else articlesExists">
-        <div class="articles__empty">
-          <p>No fue posible obtener los datos del artículo seleccionado...</p>
-        </div>
-      </ng-container>
-    </ng-template>
     <ng-template #articlesExists>
       <div class="article__item">
         <div class="article__title">
-          <h2>{{article.attributes.title}}</h2>
+          <h2>{{ article.titulo }}</h2>
         </div>
-        <div class="article__info" [innerHtml]="article.attributes.body.processed | textTransformPipe"></div>
+        <div
+          class="article__info"
+          [innerHtml]="article.contenido"
+        ></div>
       </div>
     </ng-template>
   </div>

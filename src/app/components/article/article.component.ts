@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
+import { ArticleEntry } from '../../../interfaces/blog-article';
 
 @Component({
   selector: 'app-article',
@@ -7,37 +8,11 @@ import { BlogService } from 'src/app/services/blog.service';
   styleUrls: ['./article.component.scss'],
   providers: [BlogService]
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent {
 
-  public loading: boolean = true;
-  private article: any;
+  @Input() public article: ArticleEntry;
 
-  @Input() public url = '';
-  @Output() public noUrl = new EventEmitter<string>();
-
-  constructor(
-    private blogService: BlogService
-  ) { }
-
-  ngOnInit() {
-    this.getArticle();
+  returnBlogHome(){
+    window.location.href = "/blog";
   }
-
-  setNoUrl(url: string) {
-    this.noUrl.emit(url);
-  }
-
-  getArticle() {
-    this.blogService.getArticle(this.url).subscribe(
-      result => {
-        this.article = result.data;
-        this.loading = false;
-      },
-      error => {
-        console.log(error);
-        this.loading = false;
-      }
-    );
-  }
-
 }

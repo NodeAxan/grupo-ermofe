@@ -35,6 +35,10 @@
     &--actived {
       .product__overlay {
         transform: translateY(0%);
+        color: white;
+        padding: 30px;
+        font-size: 13px;
+        overflow-y: auto;
       }
     }
   }

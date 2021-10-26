@@ -31,7 +31,8 @@ export class FooterComponent implements OnInit {
     this.products = false;
     this.productService.getProducts().subscribe(
       result => {
-        this.products = result;
+        // Return 10 first products only
+        this.products = result.entries.slice(0, 10);
       },
       error => {
         console.log(`Ha ocurrido un error interno: ${error}`);

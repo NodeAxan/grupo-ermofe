@@ -1,34 +1,51 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { BlogService } from '../../services/blog.service';
+import { Location } from "@angular/common";
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ArticleEntry } from "../../../interfaces/blog-article";
+import { BlogService } from "../../services/blog.service";
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss'],
-  providers: [BlogService]
+  selector: "app-blog",
+  templateUrl: "./blog.component.html",
+  styleUrls: ["./blog.component.scss"],
+  providers: [BlogService],
 })
 export class BlogComponent implements OnInit {
-
   public loading = true;
-  public articles: any;
+  public articles: ArticleEntry[];
   public url: string;
+  public selectedArticle: ArticleEntry;
 
-  @Input() queryParams = '';
-  @Input() urlHome = '';
+  @Input() queryParams = "";
+  @Input() urlHome = "";
 
   @Output() urlToHome = new EventEmitter<string>();
 
   constructor(
     private blogService: BlogService,
-    private activedRoute: ActivatedRoute
-  ) { }
+    private activedRoute: ActivatedRoute,
+    private location: Location,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.activedRoute.queryParams.subscribe(params => {
-      if (params.urlHome) this.url = params.urlHome;
+    this.activedRoute.queryParams.subscribe((params) => {
+      this.getArticles(params.article);
     });
-    this.getArticles();
+  }
+
+  selectArticle(article: ArticleEntry) {
+    // If I'm in home, href to blog
+    if (this.router.url === "/home") {
+      this.router.navigate(["/blog"], {
+        queryParams: {
+          article: article._id,
+        },
+      });
+      return (document.documentElement.scrollTop = 0);
+    }
+    this.location.replaceState("/blog?article=" + article._id);
+    this.selectedArticle = article;
   }
 
   selectUrl(url: string) {
@@ -39,14 +56,19 @@ export class BlogComponent implements OnInit {
     this.urlToHome.emit(url);
   }
 
-  getArticles() {
+  getArticles(articleId?: string) {
     this.loading = true;
-    this.blogService.getArticles(this.queryParams).subscribe(
-      result => {
-        this.articles = result.data;
+    return this.blogService.getArticles().subscribe(
+      (result) => {
+        this.articles = result.entries;
         this.loading = false;
+        if (articleId) {
+          this.selectedArticle = this.articles.find(
+            (article) => article._id === articleId
+          );
+        }
       },
-      error => {
+      (error) => {
         console.error(error);
         this.loading = false;
       }

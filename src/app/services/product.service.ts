@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { api } from '../global/variable.global';
+import environment from '../../environments/environment';
+import { ProductsObject } from '../../interfaces/product';
 
 @Injectable()
 export class ProductService {
@@ -11,11 +13,15 @@ export class ProductService {
   constructor(
     private http: HttpClient
   ) {
-    this.url = api.url;
+    this.url = api.cockpit;
   }
 
-  getProducts(): Observable<any> {
-    return this.http.get(`${this.url}/product/read.php`);
+  getProducts(): Observable<ProductsObject> {
+    return this.http.get<ProductsObject>(`${this.url}/api/collections/get/productos`, {
+      headers: {
+        "Cockpit-Token": environment.API_KEY
+      }
+    });
   }
 
   getProductsByWord(word: object): Observable<any> {
