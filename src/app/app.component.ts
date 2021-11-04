@@ -57,6 +57,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   className(page: string) {
+    if (!page) {
+      page = window.location.pathname.split('/').filter(x => x)[0];
+    }
+
     if (page.includes('home') || page === '') {
       this.page = 'home';
       this.title = 'Grupo ERMOFE';
