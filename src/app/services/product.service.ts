@@ -24,10 +24,4 @@ export class ProductService {
     });
   }
 
-  getProductsByWord(word: object): Observable<any> {
-    const params = JSON.stringify(word);
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(`${this.url}/product/read.php`, params, { headers });
-  }
-
 }

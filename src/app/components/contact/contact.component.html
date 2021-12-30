@@ -10,7 +10,7 @@
       <form
         #contactForm="ngForm"
         autocomplete="off"
-        (submit)="sendContactForm(client, contactForm)"
+        (submit)="sendContactForm(client, $event)"
       >
         <legend>Campos obligatorios<span>*</span></legend>
         <div class="input-group">
@@ -35,9 +35,6 @@
             required
           />
           <label class="label" for="last-name">Apellidos<span>*</span></label>
-          <span *ngIf="last - name.touched && !last - name.valid"
-            >Campo requerido</span
-          >
         </div>
         <div class="input-group">
           <input
