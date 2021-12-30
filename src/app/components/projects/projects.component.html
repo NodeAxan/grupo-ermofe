@@ -5,10 +5,21 @@
     </div>
 
     <div class="select__links">
-      <button class="select__link select__link--actived" (click)="getProjects()"
-        (click)="activedOption($event)">Todos</button>
-      <button *ngFor="let category of categories" class="select__link" (click)="filterProjects(category.name)"
-        (click)="activedOption($event)">{{category.name}}</button>
+      <button
+        class="select__link select__link--actived"
+        (click)="filterProjects()"
+        (click)="setOptionActive($event)"
+      >
+        Todos
+      </button>
+      <button
+        *ngFor="let category of categories"
+        class="select__link"
+        (click)="filterProjects(category)"
+        (click)="setOptionActive($event)"
+      >
+        {{ category }}
+      </button>
     </div>
   </div>
 </div>
@@ -21,7 +32,7 @@
   </ng-container>
 
   <ng-template #noThere>
-    <ng-container *ngIf="!projects; else projectsExists">
+    <ng-container *ngIf="!projects.length; else projectsExists">
       <div class="projects__empty">
         <p>No hay proyectos existentes...</p>
       </div>
@@ -30,60 +41,12 @@
 
   <ng-template #projectsExists>
     <div class="cards">
-      <div class="cards__content" *ngFor="let project of projects">
-        <div class="cards__image">
-          <div class="glide">
-            <div class="glide__track" data-glide-el="track">
-              <ul class="glide__slides">
-                <li class="glide__slide" *ngFor="let image of project.pictures">
-                  <div *ngIf="image.picture">
-                    <img src="{{image.url}}" alt="">
-                  </div>
-                  <div *ngIf="!image.picture">
-                    <video src="{{image.url}}" controls muted controlsList="nofullscreen nodownload"></video>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                <!-- <span class="row-icon mdi mdi-chevron-left"></span> -->
-                <svg class="row-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                  <path style="fill: white;" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
-                </svg>
-              </button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                <!-- <span class="row-icon mdi mdi-chevron-right"></span> -->
-                <svg class="row-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                  <path style="fill: white;" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="cards__overlay">
-            <textarea readonly>{{project.description}}</textarea>
-          </div>
-        </div>
-        <div class="cards__info">
-          <div class="cards__text">
-            <p>{{project.name}}</p>
-          </div>
-          <div class="icon cards__more" (click)="cardActived($event)">
-            <!-- <span class="mdi mdi-plus"></span> -->
-            <svg class="plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-              version="1.1" width="32" height="32" viewBox="0 0 24 24">
-              <path style="fill: white;" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-            </svg>
-
-            <svg class="minus" style="display: none;" xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="32" height="32" viewBox="0 0 24 24">
-              <path style="fill: white;" d="M19,13H5V11H19V13Z" />
-            </svg>
-          </div>
-        </div>
-      </div>
+      <app-project-card
+        class="cards__content"
+        *ngFor="let project of projectsFiltered"
+        [project]="project"
+      >
+      </app-project-card>
     </div>
   </ng-template>
 </div>

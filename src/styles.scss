@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './scss/variables';
-@import './scss/mixins';
+@import "./scss/variables";
+@import "./scss/mixins";
 
 // Required Core Stylesheet
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
@@ -10,10 +10,22 @@
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
 // This font is for titles, subtitles, slogans
-@include font-face('Raleway', './assets/fonts/Raleway/Raleway-Bold', null, null, ttf);
+@include font-face(
+  "Raleway",
+  "./assets/fonts/Raleway/Raleway-Bold",
+  null,
+  null,
+  ttf
+);
 
 // This font is for paragraph, buttons, links and more
-@include font-face('Poppins', './assets/fonts/Poppins/Poppins-Regular', null, null, ttf);
+@include font-face(
+  "Poppins",
+  "./assets/fonts/Poppins/Poppins-Regular",
+  null,
+  null,
+  ttf
+);
 
 *,
 *::before,
@@ -23,7 +35,7 @@
   outline: none;
   box-sizing: border-box;
   text-align: justify;
-  @include font-family('Poppins');
+  @include font-family("Poppins");
 }
 
 html {
@@ -67,7 +79,7 @@ h3,
 h4,
 h5,
 h6 {
-  @include font-family('Raleway');
+  @include font-family("Raleway");
 }
 
 p {
@@ -88,11 +100,11 @@ textarea,
 label,
 button,
 select,
-input[type=text],
-input[type=radio],
-input[type=checkbox],
-input[type=email],
-input[type=password] {
+input[type="text"],
+input[type="radio"],
+input[type="checkbox"],
+input[type="email"],
+input[type="password"] {
   border: none;
 }
 
@@ -121,23 +133,19 @@ blockquote {
 
 // CARDS
 .cards {
-
   &__content {
     width: 100%;
+    height: 100%;
     overflow: hidden;
-    margin: 1rem 0;
     border-radius: 10px;
     background-color: $white;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
-  }
-
-  @media all and (min-width: 600px) {
-    margin-bottom: 0;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
   }
 
   &__image {
     width: 100%;
     position: relative;
+    overflow: hidden;
 
     &--actived {
       .cards__overlay {
@@ -160,6 +168,7 @@ blockquote {
 
   &__info {
     width: 100%;
+    height: calc(100% - 260px);
     @include grid(calc(100% - 50px) 50px);
   }
 
@@ -172,7 +181,6 @@ blockquote {
     width: 100%;
     height: 100%;
   }
-
 
   &__more {
     color: $white;
@@ -191,18 +199,19 @@ blockquote {
     right: 0;
     bottom: 0;
     z-index: 5;
-    transition: all ease .8s;
+    transition: all ease 0.8s;
     transform: translateY(-100%);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
 
-    textarea {
+    div {
       width: 100%;
       resize: none;
       height: 100%;
       color: $white;
       padding: 2rem 2.5rem 2rem 2rem;
+      overflow-x: auto;
       background-color: $blue;
-      @include font-family('Poppins');
+      @include font-family("Poppins");
     }
   }
 }
@@ -243,7 +252,7 @@ blockquote {
 
   &__more {
     & button {
-      padding: .7rem 1.5rem;
+      padding: 0.7rem 1.5rem;
       color: $white;
       border-radius: 100px;
       background-color: $blue;
@@ -306,7 +315,7 @@ blockquote {
     outline: unset;
     font-size: 1.5rem;
     background-color: $blue;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
   }
 }
 

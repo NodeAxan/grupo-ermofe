@@ -1,5 +1,5 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins';
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
 
 .contact {
   width: 100%;
@@ -10,7 +10,7 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 1rem;
-    max-width: 916.800px;
+    max-width: 916.8px;
 
     @include media-tablet {
       @include grid(repeat(2, calc(50% - 2rem)));
@@ -19,7 +19,14 @@
   }
 
   &__text {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text p {
     margin-bottom: 1.5rem;
+    max-width: 550px;
+    text-align: center !important;
   }
 
   &__alert {
@@ -52,24 +59,24 @@
   }
 
   legend {
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
   }
 
   span {
     color: $red;
   }
 
-  button[type=submit] {
+  button[type="submit"] {
     color: $white;
     margin: 1rem 0;
     font-size: 1.1rem;
     border-radius: 100px;
-    padding: .6rem 2.2rem;
+    padding: 0.6rem 2.2rem;
     background-color: $blue;
 
     span {
       color: $white;
-      margin-left: .6rem;
+      margin-left: 0.6rem;
     }
   }
 
@@ -100,7 +107,7 @@
     z-index: 1;
     font-size: 1.1rem;
     pointer-events: none;
-    transition: all ease .4s;
+    transition: all ease 0.4s;
   }
 
   textarea {
@@ -108,27 +115,30 @@
     height: 170px;
   }
 
-  input:focus~label,
-  input:valid~label,
-  textarea:focus~label,
-  textarea:valid~label {
+  input:focus ~ label,
+  input:valid ~ label,
+  textarea:focus ~ label,
+  textarea:valid ~ label {
     top: -20px;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 }
 
 .social-media {
-  font-size: 1.2rem;
-  margin-top: .9rem;
+  margin-top: 0.9rem;
 
   @include media-tablet {
     margin-top: 2.5rem;
   }
 
+  div {
+    margin-top: 20px;
+  }
+
   span {
     color: $blue;
     font-size: 1.8rem;
-    margin-right: .6rem;
+    margin-right: 0.6rem;
   }
 
   a {
@@ -140,9 +150,27 @@
     line-height: 2.5rem;
   }
 
+  &__list {
+    // margin-top: 10px;
+    // padding: 0 10px;
+    // @include flex(row);
+    // @include f-align(center);
+    list-style-type: none;
+
+    li {
+      @include flex(row);
+      @include f-align(center);
+      margin-top: 15px;
+    }
+  }
+
   &__item {
-    margin-top: .65rem;
-    @include flex(row);
-    @include f-align(center);
+    display: inline;
+    padding: 0 10px;
+
+    svg {
+      width: 35px;
+      height: 35px;
+    }
   }
 }

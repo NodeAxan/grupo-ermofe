@@ -8,7 +8,7 @@
 
     <ng-template #clientsList>
       <div class="clients__image" *ngFor="let client of clients">
-        <img src="{{urlImage}}/{{client.picture}}">
+        <img src="{{ url }}/{{ client.logo.path }}" alt="{{ client.name }}" />
       </div>
     </ng-template>
   </div>
