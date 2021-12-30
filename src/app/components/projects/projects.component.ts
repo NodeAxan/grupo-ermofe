@@ -62,7 +62,8 @@ export class ProjectsComponent implements OnInit {
     );
   }
 
-  filterProjects(category: string) {
+  filterProjects(category?: string) {
+    if (!category) return (this.projectsFiltered = this.projects);
     if (this.projects) {
       return (this.projectsFiltered = this.projects.filter((project) => {
         return (
@@ -74,7 +75,7 @@ export class ProjectsComponent implements OnInit {
     this.projects = [];
   }
 
-  activedOption(e: any) {
+  setOptionActive(e: any) {
     this.options = document.querySelectorAll(".select__link");
     this.options.forEach((option) => {
       if (option.classList.contains("select__link--actived")) {

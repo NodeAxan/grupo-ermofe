@@ -5,11 +5,19 @@
     </div>
 
     <div class="select__links">
-      <button class="select__link select__link--actived" (click)="getProjects()" (click)="activedOption($event)">
+      <button
+        class="select__link select__link--actived"
+        (click)="filterProjects()"
+        (click)="setOptionActive($event)"
+      >
         Todos
       </button>
-      <button *ngFor="let category of categories" class="select__link" (click)="filterProjects(category)"
-        (click)="activedOption($event)">
+      <button
+        *ngFor="let category of categories"
+        class="select__link"
+        (click)="filterProjects(category)"
+        (click)="setOptionActive($event)"
+      >
         {{ category }}
       </button>
     </div>
@@ -33,7 +41,11 @@
 
   <ng-template #projectsExists>
     <div class="cards">
-      <app-project-card class="cards__content" *ngFor="let project of projectsFiltered" [project]="project">
+      <app-project-card
+        class="cards__content"
+        *ngFor="let project of projectsFiltered"
+        [project]="project"
+      >
       </app-project-card>
     </div>
   </ng-template>

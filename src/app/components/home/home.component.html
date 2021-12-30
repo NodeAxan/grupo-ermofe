@@ -1,34 +1,53 @@
 <div class="biography">
   <div class="biography__content">
     <div class="biography__text">
-      <p>Somos una empresa mexicana con <span>más de 30 años de experiencia</span> en la industria de la construcción.
-        Actualmente nos especializamos en suministrar e instalar Puentes Peatonales de Aluminio Marino y Parapetos de
-        Aluminio Marino, entre otros productos como tablestacas, barreras acústicas y muelles de aluminio marino</p>
+      <p>
+        Somos una empresa mexicana con
+        <span>más de 30 años de experiencia</span> en la industria de la
+        construcción. Actualmente nos especializamos en suministrar e instalar
+        Puentes Peatonales de Aluminio Marino y Parapetos de Aluminio Marino,
+        entre otros productos como tablestacas, barreras acústicas y muelles de
+        aluminio marino
+      </p>
     </div>
     <div class="gator">
       <div class="gator__info">
         <div class="gator__title">
-          <p>Tenemos alianzas estratégicas con empresas Americanas y
-            Canadienses con el fin de proveer estructuras y soluciones innovadoras.
-            Ofrecemos un servicio integral, que va desde la concepción del proyecto, el
-            diseño, el desarrollo, el suministro y la instalación de nuestros productos.</p>
+          <p>
+            Tenemos alianzas estratégicas con empresas Americanas y Canadienses
+            con el fin de proveer estructuras y soluciones innovadoras.
+            Ofrecemos un servicio integral, que va desde la concepción del
+            proyecto, el diseño, el desarrollo, el suministro y la instalación
+            de nuestros productos.
+          </p>
         </div>
         <div class="gator__images">
           <!-- <img src="./assets/img/gatorbridge-spanish_orig.png" alt="Gator Bridge"> -->
-          <div><img src="../../../assets/img/flags/mexico.png" alt="mexico"></div>
-          <div><img src="../../../assets/img/flags/eua.png" alt="eua"></div>
-          <div><img src="../../../assets/img/flags/canada.png" alt="canada"></div>
+          <div>
+            <img src="../../../assets/img/flags/mexico.png" alt="mexico" />
+          </div>
+          <div><img src="../../../assets/img/flags/eua.png" alt="eua" /></div>
+          <div>
+            <img src="../../../assets/img/flags/canada.png" alt="canada" />
+          </div>
         </div>
       </div>
       <div class="gator__description">
-        <p>Desde el año 2015 hemos instalado más de 30 puentes peatonales de aluminio y más de 10,000 metros lineales de
-          parapetos de aluminio en México, consiguiendo de esta forma implementar en nuestro país estructuras
-          anticorrosivas, de bajo costo de mantenimiento, duraderas y reciclables</p>
+        <p>
+          Desde el año 2015 hemos instalado más de 30 puentes peatonales de
+          aluminio y más de 10,000 metros lineales de parapetos de aluminio en
+          México, consiguiendo de esta forma implementar en nuestro país
+          estructuras anticorrosivas, de bajo costo de mantenimiento, duraderas
+          y reciclables
+        </p>
       </div>
       <div class="gator__sct">
-        <p>Nuestros puentes peatonales y parapetos de aluminio son los únicos revisados y aprobados por la Secretaría de
-          Comunicaciones y Transportes (SCT).</p>
-        <img src="../../../assets/img/logo-sct.svg" alt="SCT">
+        <p>
+          Nuestros puentes peatonales y parapetos de aluminio son los únicos
+          revisados y aprobados por la Secretaría de Comunicaciones y
+          Transportes (SCT).
+        </p>
+        <img src="../../../assets/img/logo-sct.svg" alt="SCT" />
       </div>
     </div>
   </div>
@@ -41,67 +60,22 @@
     </div>
 
     <div class="cards">
-      <div class="projects__empty" *ngIf="!projects; else projectsExists">
+      <div
+        class="projects__empty"
+        *ngIf="!projects.length; else projectsExists"
+      >
         <p>No hay proyectos existentes</p>
       </div>
 
       <ng-template #projectsExists>
-        <div class="cards__content" *ngFor="let project of projects; let i = index">
-          <div class="cards__image">
-            <div class="glide">
-              <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides">
-                  <li class="glide__slide" *ngFor="let image of project.pictures">
-                    <div *ngIf="image.picture">
-                      <img src="{{image.url}}" alt="">
-                    </div>
-                    <div *ngIf="!image.picture">
-                      <video src="{{image.url}}" controls muted controlsList="nofullscreen nodownload"></video>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                  <!-- <span class="row-icon mdi mdi-chevron-left"></span> -->
-                  <svg class="row-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                    <path style="fill: white;" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
-                  </svg>
-                </button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                  <!-- <span class="row-icon mdi mdi-chevron-right"></span> -->
-                  <svg class="row-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                    <path style="fill: white;" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="cards__overlay">
-              <textarea readonly>{{project.description}}</textarea>
-            </div>
-          </div>
-          <div class="cards__info">
-            <div class="cards__text">
-              <p>{{project.name}}</p>
-            </div>
-            <div class="icon cards__more" (click)="cardActived($event)">
-              <!-- <span class="mdi mdi-plus"></span> -->
-              <svg class="plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                version="1.1" width="32" height="32" viewBox="0 0 24 24">
-                <path style="fill: white;" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-              </svg>
-
-              <svg class="minus" style="display: none;" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="32" height="32" viewBox="0 0 24 24">
-                <path style="fill: white;" d="M19,13H5V11H19V13Z" />
-              </svg>
-            </div>
-          </div>
-        </div> <!-- .cards__content -->
+        <app-project-card
+          *ngFor="let project of projects; let i = index"
+          class="cards__content"
+          [project]="project"
+        ></app-project-card>
       </ng-template>
-    </div> <!-- .cards -->
+    </div>
+    <!-- .cards -->
   </div>
 </div>
 
@@ -112,7 +86,11 @@
       <h3>Publicaciones recientes</h3>
     </div>
     <div class="blog__articles">
-      <app-blog [queryParams]="query" (urlToHome)="selectUrl($event)" [urlHome]="url"></app-blog>
+      <app-blog
+        [queryParams]="query"
+        (urlToHome)="selectUrl($event)"
+        [urlHome]="url"
+      ></app-blog>
     </div>
   </div>
 </div>
@@ -120,8 +98,11 @@
 <div class="contact">
   <div class="contact__content">
     <div class="contact__text">
-      <p>Contacte a Grupo ERMOFE para solicitar una cotización inmediata o para conocer más acerca de los puentes
-        de aluminio. Esperamos poder asistirlo y trabajar en su próximo proyecto.</p>
+      <p>
+        Contacte a Grupo ERMOFE para solicitar una cotización inmediata o para
+        conocer más acerca de los puentes de aluminio. Esperamos poder asistirlo
+        y trabajar en su próximo proyecto.
+      </p>
     </div>
     <div class="contact__button">
       <a [routerLink]="['/contact']">Contáctanos</a>
@@ -135,42 +116,68 @@
       <h2>Organizaciones Reguladoras</h2>
     </div>
     <div class="regulators__text">
-      <p>Altos estándares derivados de un trabajo colabortivo con importantes organizaciones regulatorias del mercado
+      <p>
+        Altos estándares derivados de un trabajo colabortivo con importantes
+        organizaciones regulatorias del mercado
       </p>
     </div>
     <div class="regulators__images">
       <div class="regulators__small">
         <div class="regulators__small__img">
-          <img src="../../../assets/img/regulators/american_welding_society.png" alt="American Welding Society">
+          <img
+            src="../../../assets/img/regulators/american_welding_society.png"
+            alt="American Welding Society"
+          />
         </div>
         <div class="regulators__small__img">
-          <img src="../../../assets/img/regulators/department_natural_resources.png" alt="Department Natural Resources">
+          <img
+            src="../../../assets/img/regulators/department_natural_resources.png"
+            alt="Department Natural Resources"
+          />
         </div>
         <div class="regulators__small__img">
-          <img src="../../../assets/img/regulators/us_corp_engineers.png" alt="Us Army Corps of Engineers">
+          <img
+            src="../../../assets/img/regulators/us_corp_engineers.png"
+            alt="Us Army Corps of Engineers"
+          />
         </div>
         <div class="regulators__small__img">
-          <img src="../../../assets/img/regulators/fish_wildlife_service.png" alt="Fish & Wildlife Service">
+          <img
+            src="../../../assets/img/regulators/fish_wildlife_service.png"
+            alt="Fish & Wildlife Service"
+          />
         </div>
         <div class="regulators__small__img">
-          <img src="../../../assets/img/regulators/astm_international.png" alt="ASTM International">
+          <img
+            src="../../../assets/img/regulators/astm_international.png"
+            alt="ASTM International"
+          />
         </div>
         <div class="regulators__small__img">
-          <img src="../../../assets/img/regulators/aluminium.png" alt="Aluminium Design Manual">
+          <img
+            src="../../../assets/img/regulators/aluminium.png"
+            alt="Aluminium Design Manual"
+          />
         </div>
       </div>
       <div class="regulators__big">
         <div class="regulators__big__img">
-          <img src="../../../assets/img/regulators/comunicaciones_transporte.png"
-            alt="Secretaria de Comunicaciones y Transporte">
+          <img
+            src="../../../assets/img/regulators/comunicaciones_transporte.png"
+            alt="Secretaria de Comunicaciones y Transporte"
+          />
         </div>
         <div class="regulators__big__img">
-          <img src="../../../assets/img/regulators/department_transportation.png"
-            alt="Florida of Department Transportation">
+          <img
+            src="../../../assets/img/regulators/department_transportation.png"
+            alt="Florida of Department Transportation"
+          />
         </div>
         <div class="regulators__big__img">
-          <img src="../../../assets/img/regulators/instituto_mexicano_transporte.png"
-            alt="Instituto Mexicano del Transporte">
+          <img
+            src="../../../assets/img/regulators/instituto_mexicano_transporte.png"
+            alt="Instituto Mexicano del Transporte"
+          />
         </div>
       </div>
     </div>

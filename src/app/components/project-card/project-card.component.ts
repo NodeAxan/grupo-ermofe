@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { ProjectEntry } from "../../../interfaces/project";
 import { api } from "../../global/variable.global";
-import { FunctionsService } from "../../services/functions.service";
 
 @Component({
   selector: "app-project-card",
@@ -14,13 +13,17 @@ export class ProjectCardComponent implements OnInit {
   public showDescription = false;
   private options: any;
 
-  constructor(private functionsService: FunctionsService) {}
+  constructor() {}
 
   ngOnInit() {}
 
   toggleShowDescription(e: MouseEvent) {
-    // this.functionsService.cardActived(e);
     this.showDescription = !this.showDescription;
+    const overlay = document.getElementById(`overlay${this.project._id}`);
+    if (this.showDescription) {
+      return (overlay.style.transform = "translateY(0%)");
+    }
+    overlay.style.transform = "translateY(-100%)";
   }
 
   activedOption(e: any) {
