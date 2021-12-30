@@ -23,6 +23,7 @@ import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { TextTransformPipe } from './pipes/text-transform-pipe.pipe';
 import { ArticleComponent } from './components/article/article.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ArticleComponent } from './components/article/article.component';
     AboutComponent,
     BlogComponent,
     TextTransformPipe,
-    ArticleComponent
+    ArticleComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

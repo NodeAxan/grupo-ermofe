@@ -3,6 +3,7 @@ import { ProjectService } from '../../services/project.service';
 import { FunctionsService } from '../../services/functions.service';
 import { BlogService } from 'src/app/services/blog.service';
 import { Router } from '@angular/router';
+import { ProjectEntry } from '../../../interfaces/project';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public projects: any;
+  public projects: ProjectEntry[];
   public query: string = 'page[limit]=3&sort=-created';
   public url: string;
 
@@ -36,10 +37,10 @@ export class HomeComponent implements OnInit {
   }
 
   getProjects() {
-    this.projects = false;
+    this.projects = [];
     this.projectService.getProjects().subscribe(
       result => {
-        this.projects = result.filter((project, index) => index < 4);
+        this.projects = result.entries.filter((project, index) => index < 4);
         setTimeout(() => {
           this.functionsService.carousel();
         }, 2000);

@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
       this.word = {
         word: params.get('word')
       };
-      this.getAllProjectsByWord(this.word);
+      // this.getAllProjectsByWord(this.word);
       this.getAllProductsByWord(this.word);
     });
   }
@@ -37,24 +37,24 @@ export class SearchComponent implements OnInit {
     this.functionsService.cardActived(e);
   }
 
-  getAllProjectsByWord(word: object) {
-    this.projectService.getProjectsByWord(word).subscribe(
-      result => {
-        if (typeof result === 'string') {
-          this.projects = false;
-        } else {
-          this.projects = result;
-          setTimeout(() => {
-            this.functionsService.videoControls();
-            this.functionsService.carousel();
-          }, 2000);
-        }
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
+  // getAllProjectsByWord(word: object) {
+  //   this.projectService.getProjectsByWord(word).subscribe(
+  //     result => {
+  //       if (typeof result === 'string') {
+  //         this.projects = false;
+  //       } else {
+  //         this.projects = result;
+  //         setTimeout(() => {
+  //           this.functionsService.videoControls();
+  //           this.functionsService.carousel();
+  //         }, 2000);
+  //       }
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   getAllProductsByWord(word: object) {
     this.productService.getProductsByWord(word).subscribe(
