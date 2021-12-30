@@ -10,7 +10,7 @@
       <form
         #contactForm="ngForm"
         autocomplete="off"
-        (submit)="sendContactForm(client, contactForm)"
+        (submit)="sendContactForm(client, $event)"
       >
         <legend>Campos obligatorios<span>*</span></legend>
         <div class="input-group">
