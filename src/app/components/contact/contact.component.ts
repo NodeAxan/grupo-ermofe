@@ -38,7 +38,7 @@ export class ContactComponent implements OnInit {
     }, 2000);
   }
 
-  sendContactForm(data: ContactForm, $event: FormDataEvent) {
+  sendContactForm(data: ContactForm, $event: Event) {
     $event.preventDefault();
     const form = new ContactForm();
     form.email = data.email;
@@ -66,28 +66,5 @@ export class ContactComponent implements OnInit {
         }, 2500);
       }
     );
-
-    // if (!this.validateEmail(email.email)) {
-    //   this.validEmailInput = "Correo no válido";
-    // } else {
-    //   this.validEmailInput = false;
-    //   this.utilsService.sendContactForm(email).subscribe(
-    //     (result) => {
-    //       this.disabledButton("");
-    //       this.formMessage = result;
-    //       setTimeout(() => {
-    //         this.formMessage = false;
-    //       }, 2500);
-    //       form.reset();
-    //     },
-    //     (error) => {
-    //       this.disabledButton("");
-    //       this.formMessage = error;
-    //       setTimeout(() => {
-    //         this.formMessage = false;
-    //       }, 2500);
-    //     }
-    //   );
-    // }
   }
 }
