@@ -17,7 +17,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Clients page.
 - Blog page.
 - Contact Us page.
-- 
 
 ### Removed
 - Drupal, Wordpress, Joomla and Custom CMS removed in favor of Cockpit. Maybe there stills references to these systems in code.
