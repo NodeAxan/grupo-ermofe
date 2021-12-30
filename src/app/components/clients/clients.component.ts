@@ -10,9 +10,9 @@ import { api } from 'src/app/global/variable.global';
 })
 export class ClientsComponent implements OnInit {
 
-  private clients: any;
-  private urlImage: string;
-  private loading = false;
+  public clients: any;
+  public urlImage: string;
+  public loading = false;
 
   constructor(
     private clientService: ClientService
