@@ -49,9 +49,11 @@
 }
 
 .cards {
+  display: grid;
+  gap: 2rem;
+
   @media all and (min-width: 600px) {
-    @include grid(repeat(2, calc(50% - 1rem)));
-    gap: 2rem;
+    @include grid-columns(repeat(2, calc(50% - 1rem)));
   }
 
   @media all and (min-width: 930px) {
