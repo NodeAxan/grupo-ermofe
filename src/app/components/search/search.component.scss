@@ -1,5 +1,5 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins';
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
 
 .found {
   margin: 0 auto;
@@ -20,7 +20,6 @@
 
 .projects,
 .products {
-
   h2 {
     text-align: center;
   }
@@ -30,4 +29,9 @@
     text-align: center;
     text-decoration: underline;
   }
+}
+
+.cards {
+  display: grid;
+  gap: 2rem;
 }
