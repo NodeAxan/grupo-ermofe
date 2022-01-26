@@ -6,13 +6,13 @@
       <p>No hay proyectos existentes</p>
     </div>
 
-    <ng-template class="cards" #projectsExists>
-      <app-project-card
-        class="cards__content"
-        *ngFor="let project of projects"
-        [project]="project"
-      >
-      </app-project-card>
+    <ng-template #projectsExists>
+      <div class="cards">
+        <div *ngFor="let project of projects">
+          <app-project-card [project]="project">
+          </app-project-card>
+        </div>
+      </div>
     </ng-template>
   </div>
 
