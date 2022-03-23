@@ -35,17 +35,7 @@ export class BlogComponent implements OnInit {
   }
 
   selectArticle(article: ArticleEntry) {
-    // If I'm in home, href to blog
-    if (this.router.url === "/home") {
-      this.router.navigate(["/blog"], {
-        queryParams: {
-          article: article._id,
-        },
-      });
-      return (document.documentElement.scrollTop = 0);
-    }
-    this.location.replaceState("/blog?article=" + article._id);
-    this.selectedArticle = article;
+    window.location.href = "/blog?article=" + article._id;
   }
 
   selectUrl(url: string) {

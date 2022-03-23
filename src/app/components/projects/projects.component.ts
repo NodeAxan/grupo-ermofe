@@ -37,7 +37,9 @@ export class ProjectsComponent implements OnInit {
     this.projectsFiltered = [];
     this.projectService.getProjects().subscribe(
       (result) => {
-        this.projects = result.entries;
+        this.projects = result.entries.sort((a, b) => {
+          return b._created - a._created;
+        })
         this.projectsFiltered = result.entries;
         this.loading = false;
         setTimeout(() => {
