@@ -20,8 +20,12 @@
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
     "@glidejs/glide": "^3.4.1",
+    "jquery": "^3.6.4",
     "ngx-facebook": "^2.4.0",
+    "ngx-fullscreen-slider": "^0.0.14",
+    "ngx-slick-carousel": "^15.0.0",
     "rxjs": "~6.4.0",
+    "slick-carousel": "^1.8.1",
     "tslib": "^1.13.0",
     "zone.js": "~0.9.1"
   },

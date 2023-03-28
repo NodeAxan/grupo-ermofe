@@ -9,8 +9,8 @@ import { ClientsComponent } from './components/clients/clients.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchComponent } from './components/search/search.component';
-import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { AboutCarouselComponent } from './components/about-carousel/about-carousel.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'clients', component: ClientsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about', component: AboutCarouselComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'search/:word', component: SearchComponent },
   { path: '**', component: HomeComponent }
