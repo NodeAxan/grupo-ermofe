@@ -9,35 +9,45 @@ export class AboutCarouselComponent implements OnInit {
   slides = [
     {
       image: "../../assets/img/about-carousel/1.jpg",
-      text: "Texto del slide 1",
+      text: `Somos una empresa mexicana con más de <strong>30 años de experiencia</strong> en la industria de la 
+      construcción. <br/><br/>Actualmente nos especializamos en <strong>suministrar e instalar</strong> estructuras de 
+      materiales sustentables como <strong>ALUMINIO, PVC y FRP</strong>.`,
     },
     {
       image: "../../assets/img/about-carousel/2.jpg",
-      text: "Texto del slide 2",
+      text: `En el <strong>2003</strong> por la alta demanda de obras en el estado de Tabasco se constituye formalmente 
+      <strong>GRUPO ERMOFE</strong>, realizando proyectos como puentes, escuelas y obras privadas.`,
     },
     {
       image: "../../assets/img/about-carousel/3.jpg",
-      text: "Texto del slide 3",
+      text: `Nuestro principal objetivo es proveer <strong>estructuras innovadoras</strong> que contribuyan al desarrollo 
+      global del país, mejorando la calidad de vida de nuestros colaboradores, clientes y usuarios.`,
     },
     {
       image: "../../assets/img/about-carousel/4.jpg",
-      text: "Texto del slide 4",
+      text: `En el 2015 Instalamos en Villahermosa Tabasco el <strong>primer puente peatonal de aluminio 
+      marino en México</strong>.`,
     },
     {
       image: "../../assets/img/about-carousel/5.jpg",
-      text: "Texto del slide 5",
+      text: `Somos una <strong>empresa ecológicamente responsable</strong>, ya que el <strong>80%</strong> del material para la 
+      fabricación de nuestros productos es reciclado y el producto terminado es <strong>100% reciclable</strong>.`,
     },
     {
       image: "../../assets/img/about-carousel/6.jpg",
-      text: "Texto del slide 6",
+      text: `En el <strong>2018</strong> instalamos en el Distribuidor Vial “Gobernadores” en Campeche, Campeche <strong>el primer 
+      parapeto de aluminio marino en México</strong>.`,
     },
     {
       image: "../../assets/img/about-carousel/7.jpg",
-      text: "Texto del slide 7",
+      text: `Nos distinguimos por ofrecer estructuras de excelente calidad, con un insuperable <strong>costo -
+      beneficio</strong>, cortos tiempos de entrega, servicios integrales, desde la <strong>concepción del 
+      proyecto, el diseño, el suministro y la instalación de nuestros productos</strong>.`,
     },
     {
       image: "../../assets/img/about-carousel/8.jpg",
-      text: "Texto del slide 8",
+      text: `Hemos instalado más de <strong>30 puentes peatonales de aluminio</strong> en más de 15 ciudades en el 
+      país. Y más de <strong>11,000 metros lineales de parapetos de aluminio</strong>.`,
     },
   ];
 
@@ -47,6 +57,7 @@ export class AboutCarouselComponent implements OnInit {
 
   ngOnInit() {
     this.updateSlidePosition();
+    // Automatically change slide every 5 seconds
   }
 
   updateSlidePosition() {

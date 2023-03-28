@@ -13,6 +13,7 @@
 
 .carousel-slide {
   flex: 1 0 100%;
+  position: relative;
 
   img {
     display: block;
@@ -29,9 +30,14 @@
   .slide-text {
     position: absolute;
     top: 50%;
-    left: 40px;
+    left: 80px;
     color: #fff;
     font-size: 24px;
+    max-width: 600px;
+    // Separation between letters
+    letter-spacing: 2px;
+    // Separation between lines
+    line-height: 2em !important;
   }
 }
 
@@ -53,4 +59,8 @@
 
 .carousel-next {
   right: 20px;
+}
+
+.text-bigger {
+  font-size: 32px;
 }
