@@ -27,5 +27,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install -g @angular/cli
-    - run: npm install --save-dev @angular-devkit/build-angular
+    - run: npm install @angular-devkit/build-angular --force
     - run: npm run build
