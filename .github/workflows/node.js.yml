@@ -22,10 +22,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
+      env:
+        CMS_API_KEY: ${{secrets.CMS_API_KEY}}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: cp src/environments/environment.example.ts src/environment/environment.ts
+    - run: sed -i 's/your-cockpit-api-key/$CMS_API_KEY/g' src/environment/environment.ts
     - run: npm install -g @angular/cli
     - run: npm install @angular-devkit/build-angular --force
     - run: npm run build
