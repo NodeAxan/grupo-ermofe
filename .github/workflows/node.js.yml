@@ -29,7 +29,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: cp src/environments/environment.example.ts src/environments/environment.ts
-    - run: sed -i 's/your-cockpit-api-key/$CMS_API_KEY/g' src/environment/environment.ts
+    - run: sed -i 's/your-cockpit-api-key/$CMS_API_KEY/g' src/environments/environment.ts
     - run: npm install -g @angular/cli
     - run: npm install @angular-devkit/build-angular --force
     - run: npm run build
