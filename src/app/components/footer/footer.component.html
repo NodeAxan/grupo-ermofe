@@ -1,8 +1,8 @@
-<footer class="footer">
+<footer class="footer" [ngStyle]="{'margin-top': route.url === '/about' ? '0' : '4rem'}">
   <div class="footer__content">
     <div class="menu">
       <div class="contact__title">
-        <h4>Menú</h4>
+        <h4>Menú </h4>
         <div class="line"></div>
       </div>
       <div class="menu__links">

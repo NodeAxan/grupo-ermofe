@@ -1,8 +1,11 @@
+@import '../../../scss/variables';
+
 .carousel-container {
   position: relative;
   overflow: hidden;
   max-width: 100vw;
   max-height: 100vh;
+  background-color: $blue;
 }
 
 .carousel-wrapper {
