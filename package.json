@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
     "@glidejs/glide": "^3.4.1",
+    "angular-cli-ghpages": "^1.0.5",
+    "animate.css": "^4.1.1",
     "jquery": "^3.6.4",
     "ngx-facebook": "^2.4.0",
     "ngx-fullscreen-slider": "^0.0.14",

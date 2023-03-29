@@ -25,19 +25,26 @@
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
+    // Parallax effect
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.5s ease;
+  }
+
+  // Second and third img must have object-position to the right
+  &:nth-child(2) img,
+  &:nth-child(3) img {
+    object-position: right;
   }
 
   .slide-text {
     position: absolute;
-    top: 50%;
-    left: 80px;
     color: #fff;
     font-size: 24px;
-    max-width: 600px;
-    // Separation between letters
+    max-width: 250px;
     letter-spacing: 2px;
-    // Separation between lines
     line-height: 2em !important;
+    top: 100px;
+    left: 50px;
   }
 }
 
@@ -63,4 +70,26 @@
 
 .text-bigger {
   font-size: 32px;
+}
+
+// Media query for small devices according to bootstrap breakpoints
+@media (min-width: 576px) {
+  .carousel-slide {
+    .slide-text {
+      top: 150px;
+      left: 50px;
+      max-width: 450px;
+    }
+  }
+}
+
+// Media query for medium devices according to bootstrap breakpoints
+@media (min-width: 768px) {
+  .carousel-slide {
+    .slide-text {
+      top: 50%;
+      left: 80px;
+      max-width: 600px;
+    }
+  }
 }

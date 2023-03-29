@@ -57,30 +57,76 @@ export class AboutCarouselComponent implements OnInit {
 
   ngOnInit() {
     this.updateSlidePosition();
-    // Automatically change slide every 5 seconds
+    document.addEventListener("mousemove", function (event: MouseEvent) {
+      let parallaxElements: NodeListOf<HTMLImageElement> =
+        document.querySelectorAll(".carousel-slide img");
+      let center = { x: window.innerWidth / 2, y: window.innerHeight / 2 }; // Punto central de la ventana
+
+      parallaxElements.forEach(function (
+        element: HTMLImageElement,
+        index: number
+      ) {
+        let speed: number = (index + 1) * 0.005; // Velocidad relativa para cada imagen
+        let x = (center.x - event.pageX) * speed;
+        let y = (center.y - event.pageY) * speed;
+        element.style.transform = `translate(${x}px, ${y}px)`; // Actualizamos la posición de la imagen
+      });
+    });
   }
 
   updateSlidePosition() {
-    const slideWidth = (
-      document.querySelector(".carousel-slide") as HTMLElement
-    ).clientWidth;
-    const wrapper = document.querySelector(".carousel-wrapper") as HTMLElement;
-    if (this.isLastSlide) {
-      wrapper.style.transform = `translateX(0)`;
-      this.currentIndex = 0;
-      this.isLastSlide = false;
-    } else if (this.isFirstSlide) {
-      wrapper.style.transform = `translateX(-${
-        (this.slides.length - 1) * slideWidth
-      }px)`;
-      this.currentIndex = this.slides.length - 1;
-      this.isFirstSlide = false;
-    } else {
-      wrapper.style.transform = `translateX(-${
-        this.currentIndex * slideWidth
-      }px)`;
+    const carouselSlide = document.querySelector(
+      ".carousel-slide"
+    ) as HTMLElement;
+    if (carouselSlide) {
+      const slideWidth = (
+        document.querySelector(".carousel-slide") as HTMLElement
+      ).clientWidth;
+      const wrapper = document.querySelector(
+        ".carousel-wrapper"
+      ) as HTMLElement;
+      // const text = document.querySelector(".carousel-text") as HTMLElement;
+      if (this.isLastSlide) {
+        wrapper.style.transform = `translateX(0)`;
+        this.currentIndex = 0;
+        this.isLastSlide = false;
+      } else if (this.isFirstSlide) {
+        wrapper.style.transform = `translateX(-${
+          (this.slides.length - 1) * slideWidth
+        }px)`;
+        this.currentIndex = this.slides.length - 1;
+        this.isFirstSlide = false;
+      } else {
+        wrapper.style.transform = `translateX(-${
+          this.currentIndex * slideWidth
+        }px)`;
+      }
+      // text.classList.add("animate__animated animate__fadeIn");
+      // this.animateCSS(".slide-text", "fadeIn");
     }
   }
+
+  animateCSS = (
+    element: string,
+    animation: string,
+    prefix = "animate__"
+  ): Promise<unknown> =>
+    // We create a Promise and return it
+    new Promise((resolve, reject) => {
+      const animationName = `${prefix}${animation}`;
+      const node = document.querySelector(element);
+
+      node.classList.add(`${prefix}animated`, animationName);
+
+      // When the animation ends, we clean the classes and resolve the Promise
+      function handleAnimationEnd(event: AnimationEvent) {
+        event.stopPropagation();
+        node.classList.remove(`${prefix}animated`, animationName);
+        resolve("Animation ended");
+      }
+
+      node.addEventListener("animationend", handleAnimationEnd, { once: true });
+    });
 
   prevSlide() {
     if (this.currentIndex > 0) {
@@ -95,6 +141,10 @@ export class AboutCarouselComponent implements OnInit {
   }
 
   nextSlide() {
+    const text = document.querySelector(".slide-text") as HTMLElement;
+    if (text) {
+      text.classList.remove("animate__fadeInRight");
+    }
     if (this.currentIndex < this.slides.length - 1) {
       this.isLastSlide = this.currentIndex === this.slides.length - 1;
       this.currentIndex++;
