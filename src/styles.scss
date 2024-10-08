@@ -9,6 +9,9 @@
 // Optional Theme Stylesheet
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
+// Animate CSS
+@import "~animate.css/animate.min";
+
 // This font is for titles, subtitles, slogans
 @include font-face(
   "Raleway",

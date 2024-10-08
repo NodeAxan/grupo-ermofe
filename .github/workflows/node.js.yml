@@ -16,15 +16,31 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
+      env:
+        CMS_API_KEY: ${{secrets.CMS_API_KEY}}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: cp src/environments/environment.example.ts src/environments/environment.ts
+    - run: sed -i 's/your-cockpit-api-key/$CMS_API_KEY/g' src/environments/environment.ts
     - run: npm install -g @angular/cli
+    - run: npm install @angular-devkit/build-angular --force
     - run: npm run build
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
